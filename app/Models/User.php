@@ -42,23 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function article()
+    public function articles()
     {
         return $this->hasMany(Article::class);
     }
-    public function category()
+    public function categories()
     {
         return $this->hasMany(Category::class);
     }
-    public function picture()
+    public function pictures()
     {
         return $this->hasMany(Picture::class);
     }
-    public function social()
+    public function socials()
     {
         return $this->hasMany(Social::class);
     }
-    public function style()
+    public function styles()
     {
         return $this->hasMany(Style::class);
     }

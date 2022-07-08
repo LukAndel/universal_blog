@@ -9,7 +9,7 @@ class Style extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }

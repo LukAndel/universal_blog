@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    public function category()
+    public function categories()
     {
         return $this->belongsToMany(Category::class);
     }
@@ -17,7 +17,7 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function picture()
+    public function pictures()
     {
         return $this->hasMany(Picture::class);
     }
