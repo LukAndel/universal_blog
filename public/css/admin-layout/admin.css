@@ -11,6 +11,17 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif !important;
+    margin: 0;
+}
+
+a {
+    color: rgb(87, 111, 114);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(87, 111, 114);
+    text-decoration: none;
 }
 
 .nav-holder {
@@ -24,8 +35,9 @@ body {
 .navigation {
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    
 }
 
 .navigation__link {
@@ -36,6 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgb(125, 157, 156);
 }
 
 .navigation__link:hover {
@@ -61,6 +74,7 @@ body {
     background: linear-gradient(0deg, rgb(125, 157, 156) 0%, rgb(107, 154, 152) 100%);
     border: none;
     font-family: 'Montserrat', sans-serif !important;
+    color: rgb(228, 220, 207);
 
 }
 
@@ -81,5 +95,17 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    font-family: 'Montserrat', sans-serif !important;
+    
+}
 
+button {
+    color: rgb(228, 220, 207);
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 5px;
+}
+
+.facebook {
+    width: 200px;
+    height: 45px;
 }

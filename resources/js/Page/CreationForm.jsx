@@ -99,10 +99,10 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
                 <br/>
                 <label>Add your own section: </label>
                 <input type="text" value={customInput} onChange={handleCustom} />
-                <button type="button" onClick={addSection}>Add</button>
+                <button type="button" onClick={addSection} className="btn">Add</button>
             </div>
             <br/>
-                <button type="button" onClick={showFBInput}>Enable Facebook comments</button>
+                <button type="button" onClick={showFBInput} className="btn facebook">Enable Facebook comments</button>
             {showFB &&(
             <div className='fb_uid'>
                 <p><em>If you want to use Facebook comments under selected articles, you need to provide user id to be able to manage them. You can find your own <a target="_blank" href='https://lookup-id.com'>here</a>.</em></p>
@@ -111,7 +111,7 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
             </div>)}
             <br/>
             <br/>
-            <button>Create</button>            
+            <button className="btn">Create</button>            
         </form>
         <Preview data={values}/>
         </>
