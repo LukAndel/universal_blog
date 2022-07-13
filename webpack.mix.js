@@ -52,5 +52,5 @@ mix.js("resources/js/app.js", "public/js").postCss(
         //
     ]
 );
-
+mix.js("resources/js/page.js", "public/js").react();
 mix.copyDirectory("vendor/tinymce/tinymce", "public/js/tinymce");

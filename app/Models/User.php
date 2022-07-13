@@ -54,8 +54,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Social::class);
     }
-    public function styles()
+    public function styleset()
     {
-        return $this->hasMany(Style::class);
+        return $this->belongsTo(Styleset::class);
+    }
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
     }
 }

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignID('article_id')->nullable();
             $table->string('url');
             $table->string('alt')->nullable();
-            $table->boolean('is_header');
-            $table->boolean('is_thumbnail');
+            $table->boolean('is_header')->default(false);
+            $table->boolean('is_thumbnail')->default(false);
             $table->timestamps();
             $table->unique(['user_id', 'is_header']);
             $table->unique(['article_id', 'is_thumbnail']);

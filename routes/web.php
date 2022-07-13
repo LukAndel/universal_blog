@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('article_creation',['App\Http\Controllers\ArticleCreation', 'create']);
-Route::post('article_creation',['App\Http\Controllers\ArticleCreation', 'store']);
+Route::get('article_creation', ['App\Http\Controllers\ArticleCreation', 'create']);
+Route::post('article_creation', ['App\Http\Controllers\ArticleCreation', 'store']);
 
-Route::get('/{name}/{id}',['App\Http\Controllers\ArticleCreation', 'display']);
+Route::get('/{name}/{id}', ['App\Http\Controllers\ArticleCreation', 'display']);
+
+Route::get('page_creation', 'PageController@create');

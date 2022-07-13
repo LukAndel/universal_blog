@@ -16,9 +16,9 @@ class ArticleCreation extends Controller
 
     public function store(Request $request)
     {
-        $article = New Article;
-        $category = New Category;
-        
+        $article = new Article;
+        $category = new Category;
+
         $article->user_id = 1;
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
@@ -27,7 +27,7 @@ class ArticleCreation extends Controller
         $category->name = $request->input('category');
         $category->user_id = 1;
 
-        
+
         $categoryId = $category->save();
         $article->category_id = $categoryId;
         $article->save();
@@ -43,7 +43,7 @@ class ArticleCreation extends Controller
         $article->date = $request->input('date');
         $category->name = $request->input('catergory');
 
-        
+
         $categoryId = $category->save();
         $article->category_id = $categoryId;
         $article->save();
