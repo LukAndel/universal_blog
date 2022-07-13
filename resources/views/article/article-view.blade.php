@@ -9,5 +9,7 @@
 <body>
     {!!$article->title!!}
     {!!$article->text!!}
+
+    <a href="/article-creation/{{$article->id}}"><button>to edit</button></a>
 </body>
 </html>
