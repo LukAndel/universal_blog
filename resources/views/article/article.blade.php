@@ -5,7 +5,7 @@
   <x-head.tinymce-config/>
 @endsection    
 @section('content')        
-  <h1>Article creation</h1>
+  <h1 class="title">Article Creation</h1>
   @include('components.forms.tinymce-editor', ['isNew' => $isNew, 'article' => $article ?? false, 'category' => $category ?? false ])
 
 @endsection
