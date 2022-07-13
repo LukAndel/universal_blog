@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('article_creation',['App\Http\Controllers\ArticleCreation', 'create']);
-Route::post('article_creation',['App\Http\Controllers\ArticleCreation', 'store']);
+Route::get('article-creation',['App\Http\Controllers\ArticleCreation', 'create'])->name('article-creation');
+Route::post('article-creation',['App\Http\Controllers\ArticleCreation', 'store']);
 
-Route::get('/{name}/{id}',['App\Http\Controllers\ArticleCreation', 'display']);
+Route::get('article-creation/{id}',['App\Http\Controllers\ArticleCreation', 'show']);
+Route::post('article-creation/{id}',['App\Http\Controllers\ArticleCreation', 'edit']);
+Route::delete('article-creation/{id}',['App\Http\Controllers\ArticleCreation', 'delete']);
+
+
+Route::get('/{name}/{id}',['App\Http\Controllers\ArticleCreation', 'display'])->name('article-show');

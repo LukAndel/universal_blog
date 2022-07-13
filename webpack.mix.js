@@ -11,6 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.browserSync({
+    proxy: process.env.APP_URL
+})
+
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
