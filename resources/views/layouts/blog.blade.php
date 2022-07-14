@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog</title>
     <link rel="stylesheet" href="/css/basic.css">
-    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/blog-lukas.css">
 </head>
 <body>
+
     @include('components/navigation')
-    <div id="root"></div>
-    <script src="{{mix('js/blog.js')}}"></script>
+
+    <div class="main">
+        @yield('blog-content')
+    </div>
 </body>
 </html>
