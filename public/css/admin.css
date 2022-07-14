@@ -1,0 +1,88 @@
+/* rgb(240, 235, 227)
+rgb(228, 220, 207)
+rgb(125, 157, 156)
+rgb(87, 111, 114) */
+
+html {
+    background-color: rgb(240, 235, 227);
+    color: rgb(87, 111, 114);
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+
+
+.btn {
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    background: rgb(125, 157, 156);
+    background: linear-gradient(0deg, rgb(125, 157, 156) 0%, rgb(107, 154, 152) 100%);
+    border: none;
+    font-family: 'Montserrat', sans-serif !important;
+    color: rgb(228, 220, 207);
+
+}
+
+.btn:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn:hover {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .5),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+.btn-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+button {
+    color: rgb(228, 220, 207);
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 5px;
+}
+
+.facebook {
+    width: 300px;
+    height: 45px;
+}
+
+.creation {
+    display: flex;
+    flex-direction: row;
+}
+
+.form {
+    flex: 0.5;
+}
+
+.preview {
+    flex: 0.5;
+    border: 2px white solid;
+    border-radius: 50px;
+    padding: 2em;
+}
+
+/*# sourceMappingURL=admin.css.map*/

@@ -19421,10 +19421,62 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/blog-layout/basic.scss":
+/*!**********************************************!*\
+  !*** ./resources/css/blog-layout/basic.scss ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/blog-layout/blog.scss":
+/*!*********************************************!*\
+  !*** ./resources/css/blog-layout/blog.scss ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/admin-layout/admin.css":
+/*!**********************************************!*\
+  !*** ./resources/css/admin-layout/admin.css ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/admin-layout/navigation.css":
+/*!***************************************************!*\
+  !*** ./resources/css/admin-layout/navigation.css ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19763,7 +19815,11 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/navigation": 0,
+/******/ 			"css/admin": 0,
+/******/ 			"css/app": 0,
+/******/ 			"css/blog": 0,
+/******/ 			"css/basic": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19813,8 +19869,12 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/css/blog-layout/basic.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/css/blog-layout/blog.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/css/admin-layout/admin.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/navigation","css/admin","css/app","css/blog","css/basic"], () => (__webpack_require__("./resources/css/admin-layout/navigation.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
