@@ -1,11 +1,26 @@
-// rgb(254, 249, 167)
-// rgb(250, 194, 19)
-// rgb(247, 126, 33)
-// rgb(214, 28, 78)
+$primary-color: rgb(6, 40, 61);
+$secondary-color: rgb(19, 99, 223);
+$tertiary-color: rgb(71, 181, 255);
+$quaternary-color: rgb(223, 246, 255);
+
+
+body{
+    background-color: $secondary-color;
+
+}
 
 .main{
-    background-color: rgb(254, 249, 167);
-    color:rgb(214, 28, 78);
+    color:$quaternary-color;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    border: solid $tertiary-color 0.5px;
+    background-color: $tertiary-color;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .articles{
@@ -21,7 +36,7 @@
 
 .article{
     height: 450px;
-    width: 800px;
+    width: 700px;
     margin: 30px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -35,10 +50,20 @@
 	transition: .3s ease-in-out;
 }
 
+.article__title {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 3rem;
+    white-space: wrap;
+}
+
 .article:hover{
 	-webkit-filter: grayscale(0);
 	filter: grayscale(0);
-    box-shadow: 10px 10px 10px #aaaaaa;
+    box-shadow: 10px 10px 10px $secondary-color;
 }
 
 
@@ -74,13 +99,4 @@
     display: none;
 }
 
-.article__title {
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 3rem;
-    white-space: wrap;
-    color: white;
-}
+

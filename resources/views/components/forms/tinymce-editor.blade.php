@@ -6,8 +6,7 @@
 @endif
     @csrf
     <div class="options" style="margin-left: 10px; margin-bottom: 10px;">
-    <label>Title*</label><br>
-    <input type="text" name="title" value={{ $article ? $article->title : '' }}>
+   
     <div class="container" style="width: 200px; margin:0; padding:0;">
       <label>Date:</label>
       <input class="date form-control" type="text" value={{ $article ? $article->date : '' }}>
@@ -18,7 +17,9 @@
         });  
       </script> 
     <label>Category*</label><br>
-    <input type="text" name="category" value={{ $category ? $category->name : '' }}>
+    <input type="text" name="category" value={{ $category ? $category->name : '' }}><br>
+    <label>Title*</label><br>
+    <textarea name="title" class="title-area">{{ $article ? $article->title : '' }}</textarea>
   </div>
     <textarea id="textarea" name="textarea">{{ $article ? $article->text : '' }}</textarea>
     <div class="btn-container">

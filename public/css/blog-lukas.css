@@ -1,11 +1,17 @@
 body {
-  background-color: rgb(254, 249, 167);
+  background-color: rgb(19, 99, 223);
 }
 
 .main {
-  color: rgb(214, 28, 78);
+  color: rgb(223, 246, 255);
   margin-left: 20%;
   margin-right: 20%;
+  margin-top: 20px;
+  border: solid rgb(71, 181, 255) 0.5px;
+  background-color: rgb(71, 181, 255);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .articles {
@@ -21,7 +27,7 @@ body {
 
 .article {
   height: 450px;
-  width: 800px;
+  width: 700px;
   margin: 30px;
   border-radius: 10px;
   background-repeat: no-repeat;
@@ -31,9 +37,19 @@ body {
   transition: 0.3s ease-in-out;
 }
 
+.article__title {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 3rem;
+  white-space: wrap;
+}
+
 .article:hover {
   filter: grayscale(0);
-  box-shadow: 10px 10px 10px #aaaaaa;
+  box-shadow: 10px 10px 10px rgb(19, 99, 223);
 }
 
 .article:nth-child(1) {
@@ -67,15 +83,4 @@ body {
   display: none;
 }
 
-.article__title {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-transform: uppercase;
-  margin: 0;
-  font-size: 3rem;
-  white-space: wrap;
-  color: white;
-}
-
-/*# sourceMappingURL=blog.css.map*/
+/*# sourceMappingURL=blog-lukas.css.map*/

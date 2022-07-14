@@ -2,10 +2,15 @@
 
 const App = () => {
     return (
-        <div className='main'>
+        <div>
             <header>
                 <div className="title__background">background img or logo</div>
-                <nav className="navigation-blog">navigation</nav>
+                <nav className="navigation-blog">
+                    <a href="#">Home</a>
+                    <a href="#">Categories</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">Calendar</a>
+                </nav>
             </header>
             <div className="articles">
                 <div className="article">

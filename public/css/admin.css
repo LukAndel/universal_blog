@@ -4,6 +4,7 @@ rgb(125, 157, 156)
 rgb(87, 111, 114) */
 
 html {
+    
     background-color: rgb(240, 235, 227);
     color: rgb(87, 111, 114);
     font-family: 'Montserrat', sans-serif !important;
@@ -11,6 +12,8 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif !important;
+
+    
 }
 
 
@@ -83,6 +86,11 @@ button {
     border: 2px white solid;
     border-radius: 50px;
     padding: 2em;
+}
+
+.title-area{
+    width: 90vw;
+    height: 2.5rem;
 }
 
 /*# sourceMappingURL=admin.css.map*/
