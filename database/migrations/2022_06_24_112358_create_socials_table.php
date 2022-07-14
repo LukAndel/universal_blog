@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('url');
+            $table->string('facebook_url');
+            $table->string('instagram_url');
+            $table->string('linkedin_url');
             $table->timestamps();
         });
     }

@@ -9,13 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function article()
+    public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Article::class);
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
 }

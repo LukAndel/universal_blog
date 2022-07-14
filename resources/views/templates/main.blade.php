@@ -6,7 +6,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 
         <script src="{{ asset('js/app.js')}}" defer></script>
 
@@ -38,9 +38,7 @@
 
         @endguest
   
-        @can('admin')
-            <a href="{{ route('admin.home') }}">Administration</a>
-        @endcan
+    
 
         <main>
             @yield('content')
