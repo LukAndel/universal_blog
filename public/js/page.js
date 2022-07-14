@@ -2231,7 +2231,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var CreationForm = function CreationForm(_ref) {
   var _ref$pageTitle = _ref.pageTitle,
       pageTitle = _ref$pageTitle === void 0 ? null : _ref$pageTitle,
@@ -2248,24 +2247,19 @@ var CreationForm = function CreationForm(_ref) {
       values = _useState2[0],
       setValues = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
-      checked = _useState4[0],
-      setChecked = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      customInput = _useState6[0],
-      setCustomInput = _useState6[1];
+      customInput = _useState4[0],
+      setCustomInput = _useState4[1];
 
   var handleCustom = function handleCustom(e) {
     setCustomInput(e.target.value);
   };
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      customSections = _useState8[0],
-      setCustomSections = _useState8[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      customSections = _useState6[0],
+      setCustomSections = _useState6[1];
 
   var addSection = function addSection() {
     setCustomSections(function (arr) {
@@ -2274,29 +2268,34 @@ var CreationForm = function CreationForm(_ref) {
   };
 
   var handleCheck = function handleCheck(e) {
-    var updatedList = _toConsumableArray(checked);
-
     if (e.target.checked) {
-      updatedList = [].concat(_toConsumableArray(checked), [e.target.value]);
+      var updatedList = [].concat(_toConsumableArray(values.sections), [e.target.value]);
+      setValues(_objectSpread(_objectSpread({}, values), {}, {
+        sections: updatedList
+      }));
     } else {
-      updatedList.splice(checked.indexOf(e.target.value), 1);
-    }
+      var _values$sections;
 
-    setChecked(updatedList);
+      var _updatedList = (_values$sections = values.sections) === null || _values$sections === void 0 ? void 0 : _values$sections.filter(function (element) {
+        return element !== e.target.value;
+      });
+
+      setValues(_objectSpread(_objectSpread({}, values), {}, {
+        sections: _updatedList
+      }));
+    }
   };
 
   var handleChange = function handleChange(e) {
     setValues(function (previous_values) {
-      var _objectSpread2;
-
-      return _objectSpread(_objectSpread({}, previous_values), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, e.target.name, e.target.value), _defineProperty(_objectSpread2, "sections", checked), _objectSpread2));
+      return _objectSpread(_objectSpread({}, previous_values), {}, _defineProperty({}, e.target.name, e.target.value));
     });
   };
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState10 = _slicedToArray(_useState9, 2),
-      showFB = _useState10[0],
-      setShowFB = _useState10[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      showFB = _useState8[0],
+      setShowFB = _useState8[1];
 
   var showFBInput = function showFBInput() {
     setShowFB(!showFB);
@@ -2305,12 +2304,14 @@ var CreationForm = function CreationForm(_ref) {
   //         setValues({ ...values, pageTitle, colorset })
   //     }
   // }, [pageTitle, colorset])
+  // console.log(customSections)
 
 
-  console.log(customSections);
   console.log(values);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "creation",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      className: "form",
       action: "",
       method: "post",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
@@ -2453,40 +2454,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
 var Preview = function Preview(data) {
-  var pageTitle = data.pageTitle,
-      colorset = data.colorset,
-      sections = data.sections;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  var _data$data = data.data,
+      pageTitle = _data$data.pageTitle,
+      colorset = _data$data.colorset,
+      sections = _data$data.sections; // console.log(data)
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "preview",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", {
-      className: "preview__nav",
-      children: sections && sections.map(function (section, i) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-          className: i === 0 ? "preview__anchor--selected" : className = "preview__anchor",
-          href: "",
-          children: section
-        });
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("header", {
       className: "preview__header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         className: "preview__h1",
         children: pageTitle && pageTitle
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
+      className: "preview__nav",
+      children: sections && sections.map(function (section, i) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          className: i === 0 ? "preview__anchor--selected" : "preview__anchor",
+          href: "",
+          children: section
+        }, i);
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "preview__body",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
         className: "preview__h2",
         children: sections && sections[0]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "preview__h3",
         children: "Article header"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
         className: "preview__p",
         children: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta hic aliquam perferendis sint ullam vitae, iste atque assumenda, explicabo cumque inventore illum expedita doloremque, sequi accusantium architecto quisquam voluptas ipsam!"
       })]
