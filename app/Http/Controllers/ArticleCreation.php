@@ -52,18 +52,21 @@ class ArticleCreation extends Controller
         return redirect()->route('article-show', [$user->name, $article->id, $category->id]);
     }
 
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         $user = Auth::user();
         $user = User::find(1);
 
         $article = Article::findOrFail($id);
+        $article->user_id = $user->id;
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
         $article->date = $request->input('date');
 
         //if exists for category
-        $category->name = $request->input('catergory');
+        $category = new Category;
+        $category->name = $request->input('category');
+        $category->user_id = 1;
         $categoryId = $category->save();
 
         $article->category_id = $categoryId;

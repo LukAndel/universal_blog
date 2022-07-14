@@ -14,14 +14,7 @@
 </head>
 <body>
     <div class="main">
-        <div class="nav-holder">
-            <nav class="navigation">
-                <a class="navigation__link" href="http://www.universal-blog.localhost">HOME</a>
-                <a class="navigation__link" href="http://www.universal-blog.localhost/page-creation">PAGE CREATION</a>
-                <a class="navigation__link" href="http://www.universal-blog.localhost/article-creation">ARTICLE CREATION</a>
-                <a class="navigation__link" href="#">YOUR BLOG</a>
-            </nav>
-        </div>
+        @include('components/navigation')
     <div class="content" style="background-color: rgb(240, 235, 227); color: rgb(87, 111, 114);">
         <div>
             @yield('content')

@@ -21,6 +21,7 @@
     "dependencies": {
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-router-dom": "^6.3.0",
         "tinymce": "^6.1.0",
         "vue-datepicker": "^1.3.0",
         "vuejs-datepicker": "^1.6.2"
