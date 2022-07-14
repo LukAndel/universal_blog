@@ -55,3 +55,7 @@ mix.js("resources/js/app.js", "public/js").postCss(
 mix.js("resources/js/page.js", "public/js").react();
 mix.copyDirectory("vendor/tinymce/tinymce", "public/js/tinymce");
 mix.js("resources/js/blog.js", "public/js").react();
+mix.sass("resources/css/blog-layout/basic.scss", "public/css");
+mix.sass("resources/css/blog-layout/blog.scss", "public/css");
+mix.postCss("resources/css/admin-layout/admin.css", "public/css");
+mix.postCss("resources/css/admin-layout/navigation.css", "public/css");

@@ -15,13 +15,36 @@
 </head>
 <body>
     <header>
-        <div class="main">
-            @include('components/navigation')
-        <div class="content" style="background-color: rgb(240, 235, 227); color: rgb(87, 111, 114);">
-            <div>
-                @yield('content')
-            </div>
-        </div>
+        @include('components/navigation')    
     </header>
+
+
+
+    <h1>Reset Password</h1>
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('password.email') }}" method="post">
+
+        @csrf
+
+        <label for="">Email:</label><br>
+        <input type="email" name="email"><br>
+        <br>
+
+        
+
+        <button>Reset Password</button>
+
+    </form>
 </body>
 </html>
+
