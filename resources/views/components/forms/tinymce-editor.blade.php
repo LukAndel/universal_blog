@@ -1,5 +1,6 @@
 @if (!$isNew)
-<form action="/article_creation/{{$article->id}}" method="post">
+<form action="/article-creation/{{$article->id}}" method="post">
+  @method('put')
 @else
 <form action="{{ action('ArticleCreation@store')}}" method="post">
 @endif
@@ -11,18 +12,21 @@
       <label>Date:</label>
       <input class="date form-control" type="text" value={{ $article ? $article->date : '' }}>
     </div>
-
-    <script type="text/javascript">
-      $('.date').datepicker({  
-         format: 'yyyy-mm-dd'
-       });  
-  </script> 
+      <script type="text/javascript">
+        $('.date').datepicker({  
+          format: 'yyyy-mm-dd'
+        });  
+      </script> 
     <label>Category*</label><br>
     <input type="text" name="category" value={{ $category ? $category->name : '' }}>
   </div>
     <textarea id="textarea" name="textarea">{{ $article ? $article->text : '' }}</textarea>
     <div class="btn-container">
       <button class="btn">submit</button>
+
+  </form>
+
+
   @if (!$isNew)
   <form action="" method="post">
     @method('delete')
@@ -30,5 +34,4 @@
       <button class="btn" formaction="{{ action('ArticleCreation@delete', [$article->id])}}">delete</button>
   </form>
   @endif
-    </div>
-  </form>
+</div>
