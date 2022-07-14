@@ -1,0 +1,43 @@
+a {
+    color: rgb(87, 111, 114);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(87, 111, 114);
+    text-decoration: none;
+}
+
+.nav-holder {
+    width: 100%;
+    background-color: rgb(125, 157, 156);
+    position: static;
+    height: 50px;
+    text-align: center;
+}
+
+.navigation {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.navigation__link {
+    text-decoration: none;
+    background-color: rgb(228, 220, 207);
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(125, 157, 156);
+}
+
+.navigation__link:hover {
+    background-color: rgb(125, 157, 156);
+    text-decoration: none;
+}
+
+/*# sourceMappingURL=navigation.css.map*/

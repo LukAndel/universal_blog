@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('article-creation','ArticleCreation@create')->name('article-creation');
 Route::post('article-creation','ArticleCreation@store');
@@ -27,6 +27,6 @@ Route::delete('article-creation/{id}','ArticleCreation@delete');
 
 Route::get('/{name}/{id}','ArticleCreation@display')->name('article-show');
 
-Route::get('page-creation', 'PageController@create');
+Route::get('page-creation', 'PageController@create')->name('page-creation');
 
-Route::get('/{name}', 'BlogController@display');
+Route::get('/{name}', 'BlogController@display')->name('blog');
