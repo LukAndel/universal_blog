@@ -7,8 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    {!!$article->title!!}
-    {!!$article->text!!}
+    Title: {!!$article->title!!}
+    <br>
+    Categories: @foreach ($categories as $item)
+        {{$item['name']}} ||
+    @endforeach
+    <br>
+    Text: {!!$article->text!!}
 
     <a href="/article-creation/{{$article->id}}"><button>to edit</button></a>
 </body>

@@ -5,7 +5,7 @@
 <form action="{{ action('ArticleCreation@store')}}" method="post">
 @endif
     @csrf
-    <div class="options" style="margin-left: 10px; margin-bottom: 10px;">
+    <div id="options" class="options" style="margin-left: 10px; margin-bottom: 10px;">
     <label>Title*</label><br>
     <input type="text" name="title" value={{ $article ? $article->title : '' }}>
     <div class="container" style="width: 200px; margin:0; padding:0;">
@@ -18,7 +18,43 @@
         });  
       </script> 
     <label>Category*</label><br>
-    <input type="text" name="category" value={{ $category ? $category->name : '' }}>
+      <button type="button" name="add" id="dynamic-add" class="btn">Add Category</button><br>
+
+      <span><input type="text" name="categories[0]" value={{ !empty($categories) ? $categories[0]->name : '' }}><button type="button" class="btn" id="remove-input">Delete</button></span>
+
+    
+    
+    
+    @if (!empty($categories))
+        
+           @for ($i=1; $i < count($categories); $i++)
+           
+           <span><input type="text" name="categories[{{$i}}]" value="{{$categories[$i]->name}}"/><button type="button" class="btn" id="remove-input">Delete</button></span>
+           
+           @endfor
+        
+    @endif
+    
+    
+
+
+    
+<script defer type="text/javascript">
+    let i = 0;
+    $("#dynamic-add").click(function () {
+        ++i;
+        $("#options").append('<span><input type="text" name="categories[' + i +
+            ']"/><button type="button" class="btn" id="remove-input">Delete</button></span>'
+            );
+    });
+    $(document).on('click', '#remove-input', function () {
+        $(this).parent('span').remove();
+    });
+</script>
+
+
+
+
   </div>
     <textarea id="textarea" name="textarea">{{ $article ? $article->text : '' }}</textarea>
     <div class="btn-container">
