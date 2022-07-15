@@ -11,7 +11,7 @@ class BlogController extends Controller
     {
         $user = User::find($userId);
 
-        return view('blog', compact('user'));
+        return view('blog/main', compact('user'));
     }
 
 }

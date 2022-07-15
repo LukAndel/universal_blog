@@ -1,4 +1,4 @@
-@extends('layouts.user-frame')
+@extends('layouts/user-frame')
 
 @section('head-specific')
   <title>Article creation</title>
