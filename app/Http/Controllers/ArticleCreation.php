@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
 use Auth;
+use Symfony\Component\Console\Input\Input;
 
 class ArticleCreation extends Controller
 {
@@ -20,10 +21,11 @@ class ArticleCreation extends Controller
     public function show($articleId)
     {
         $article = Article::find($articleId);
+        $categories = $article->categories()->get();
 
         $isNew = false;
 
-        return view('article.article', compact('article', 'isNew'));
+        return view('article.article', compact('article', 'isNew', 'categories'));
     }
 
     public function store(Request $request)
@@ -38,22 +40,32 @@ class ArticleCreation extends Controller
         $article->title = $request->input('title');
         $article->date = $request->input('date');
 
-
-        //if exists for category
-        // $categoryList = Category::
-        $category = new Category;
-        $category->name = $request->input('category');
-        $category->user_id = 1;
-        $categoryId = $category->save();
-
-        $article->category_id = $categoryId;
         $article->save();
 
-        return redirect()->route('article-show', [$user->name, $article->id, $category->id]);
+        foreach ($request->categories as $key => $name) {
+
+
+            if (Category::where('name', $name)->first()) {
+                $category = Category::where('name', $name)->first();
+                $article->categories()->attach($category->id);
+            } else {
+                $category = new Category;
+                $category->name = $name;
+                $category->save();
+                // $category->articles()->attach($article->id);
+                $article->categories()->attach($category->id);
+            }
+        };
+
+
+
+        return redirect()->route('article-show', [$user->name, $article->id]);
     }
 
     public function edit(Request $request, $id)
     {
+        // dd($request->categories);
+
         $user = Auth::user();
         $user = User::find(1);
 
@@ -63,24 +75,35 @@ class ArticleCreation extends Controller
         $article->title = $request->input('title');
         $article->date = $request->input('date');
 
-        //if exists for category
-        $category = new Category;
-        $category->name = $request->input('category');
-        $category->user_id = 1;
-        $categoryId = $category->save();
-
-        $article->category_id = $categoryId;
         $article->save();
 
-        return redirect()->route('article-show', [$user->name, $article->id, $category->id]);
+        foreach ($request->categories as $key => $name) {
+
+
+            if (Category::where('name', $name)->first()) {
+                // $category = Category::where('name', $name)->first();
+                // $article->categories()->attach($category->id);
+            } else {
+                $category = new Category;
+                $category->name = $name;
+                $category->save();
+                // $category->articles()->attach($article->id);
+                $article->categories()->attach($category->id);
+            }
+        };
+
+
+        return redirect()->route('article-show', [$user->name, $article->id]);
     }
 
     public function display($name, $id)
     {
         $user = User::where('name', $name)->first();
         $article = Article::where('id', $id)->first();
+        $categories = $article->categories()->get();
 
-        return view('article.article-view', compact('user', 'article'));
+
+        return view('article.article-view', compact('user', 'article', 'categories'));
     }
 
     public function delete($id)
