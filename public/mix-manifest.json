@@ -1,14 +1,28 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=ceac30f5dcdb08c8d634eff7b303e4fa",
+=======
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=a9bdc8dc7d3e9a61b3ba2585087a9c12",
+=======
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=a794c8b6eb48b42ccdc474187209b8b5",
+=======
+    "/js/app.js": "/js/app.js?id=ceac30f5dcdb08c8d634eff7b303e4fa",
+>>>>>>> main
+>>>>>>> main
+>>>>>>> side
     "/js/page.js": "/js/page.js?id=ab960664165947f49b04fabf3fd8a54b",
     "/js/blog.js": "/js/blog.js?id=607d99e2d128407f0b8df8b514ff9458",
-    "/css/app.css": "/css/app.css?id=eac982123906a51f0d42ccc3fd8b1c82",
+    "/js/welcome.js": "/js/welcome.js?id=c58e3a7326f0679ee7d514b52fc361a5",
+    "/css/welcome.css": "/css/welcome.css?id=81404e83f38c4a7527557148637e983e",
     "/css/blog-oskar.css": "/css/blog-oskar.css?id=68b329da9893e34099c7d8ad5cb9c940",
     "/css/blog-jiri.css": "/css/blog-jiri.css?id=68b329da9893e34099c7d8ad5cb9c940",
     "/css/blog-lukas.css": "/css/blog-lukas.css?id=72fa259a41e65c8350ab831a6fe40225",
     "/css/basic.css": "/css/basic.css?id=1179aafb990c8fb258484475f0fc2dd9",
-    "/css/navigation.css": "/css/navigation.css?id=7607b22052839552750260874cb70afe",
+    "/css/navigation.css": "/css/navigation.css?id=944533abc79284fb2bb7e37a818e0755",
     "/css/admin.css": "/css/admin.css?id=28413db0d078ad598dc6f6569ba67180",
+    "/css/app.css": "/css/app.css?id=eac982123906a51f0d42ccc3fd8b1c82",
     "/js/tinymce/bower.json": "/js/tinymce/bower.json?id=505ad2d6409a1575617ac1b26716ace8",
     "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md?id=2474691c6c3a3da53c43d08c5cd4798d",
     "/js/tinymce/composer.json": "/js/tinymce/composer.json?id=cfbaa679fb127737e0437209c867d96f",

@@ -24,9 +24,11 @@ Route::get('article-creation/{id}','ArticleCreation@show');
 Route::put('article-creation/{id}','ArticleCreation@edit');
 Route::delete('article-creation/{id}','ArticleCreation@delete');
 
+Route::get('page-creation', 'PageController@create')->name('page-creation');
+
 
 Route::get('/{name}/{id}','ArticleCreation@display')->name('article-show');
 
-Route::get('page-creation', 'PageController@create')->name('page-creation');
+
 
 Route::get('/{name}', 'BlogController@display')->name('blog');

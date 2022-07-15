@@ -19421,6 +19421,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/admin-layout/admin.css":
 /*!**********************************************!*\
   !*** ./resources/css/admin-layout/admin.css ***!
@@ -19499,10 +19512,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./resources/css/admin-layout/welcome.scss":
+/*!*************************************************!*\
+  !*** ./resources/css/admin-layout/welcome.scss ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19841,13 +19854,14 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0,
+/******/ 			"css/welcome": 0,
 /******/ 			"css/blog-oskar": 0,
 /******/ 			"css/blog-jiri": 0,
 /******/ 			"css/blog-lukas": 0,
 /******/ 			"css/basic": 0,
 /******/ 			"css/navigation": 0,
-/******/ 			"css/admin": 0
+/******/ 			"css/admin": 0,
+/******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19897,14 +19911,15 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/blog-layout/basic.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/blog-layout/blog-lukas.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/blog-layout/blog-jiri.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/blog-layout/blog-oskar.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/admin-layout/admin.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin"], () => (__webpack_require__("./resources/css/admin-layout/navigation.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/blog-layout/basic.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/blog-layout/blog-lukas.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/blog-layout/blog-jiri.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/blog-layout/blog-oskar.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/admin-layout/welcome.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/admin-layout/admin.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/welcome","css/blog-oskar","css/blog-jiri","css/blog-lukas","css/basic","css/navigation","css/admin","css/app"], () => (__webpack_require__("./resources/css/admin-layout/navigation.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
