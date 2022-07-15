@@ -6,11 +6,10 @@
 @endif
     @csrf
     <div id="options" class="options">
-    <label>Title*</label><br>
-    <textarea name="title">{{ $article ? $article->title : '' }}</textarea>
     <div class="container">
+      
       <label>Date:</label>
-      <input class="date form-control" type="text" value={{ $article ? $article->date : '' }}>
+      <input class="date form-control" type="text" style="width: 200px; margin-left: 40%" value={{ $article ? $article->date : '' }}>
     </div>
       <script type="text/javascript">
         $('.date').datepicker({  
@@ -18,7 +17,7 @@
         });  
       </script> 
     <label>Category*</label><br>
-      <button type="button" name="add" id="dynamic-add" class="btn">Add Category</button><br>
+      <button style="margin: 5px" type="button" name="add" id="dynamic-add" class="btn">Add Category</button><br>
 
       <span><input type="text" name="categories[0]" value={{ !empty($categories) ? $categories[0]->name : '' }}><button type="button" class="btn" id="remove-input">Delete</button></span>
 
@@ -54,8 +53,10 @@
 
 
 
-
+    
   </div>
+    <br><label>Title*</label><br>
+    <textarea name="title" style="width: 90%; height: 30px">{{ $article ? $article->title : '' }}</textarea>
     <textarea id="textarea" name="textarea">{{ $article ? $article->text : '' }}</textarea>
     <div class="btn-container">
       <button class="btn">submit</button>
