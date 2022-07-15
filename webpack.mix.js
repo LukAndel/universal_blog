@@ -60,6 +60,7 @@ mix.sass("resources/css/blog-layout/blog-lukas.scss", "public/css");
 mix.sass("resources/css/blog-layout/blog-jiri.scss", "public/css");
 mix.sass("resources/css/blog-layout/blog-oskar.scss", "public/css");
 mix.postCss("resources/css/admin-layout/admin.css", "public/css");
-mix.postCss("resources/css/admin-layout/navigation.css", "public/css");
+mix.sass("resources/css/admin-layout/navigation.scss", "public/css");
 mix.sass("resources/css/admin-layout/welcome.scss", "public/css");
 mix.js("resources/js/welcome.js", "public/js").react();
+

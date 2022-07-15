@@ -31,7 +31,7 @@
         <button class="btn">Login</button>
 
     </form>
-    <a class="btn" style="margin-left: 5px; color:rgb(228, 220, 207)" href="{{ route('password.request') }}">Reset password</a>
+    <a class="btn" href="{{ route('password.request') }}">Reset password</a>
 @endsection
 
 

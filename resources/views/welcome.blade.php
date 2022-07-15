@@ -25,7 +25,7 @@
 			<input type="email" placeholder="email" name="email" class="input" value="{{ old('name') }}" />
 			<input type="password" placeholder="password" name="password" class="input" />
       		<input type="password" placeholder="password_confirmation" name="password_confirmation" class="input" />
-			<button type="submit" class="btn-login">Sign Up</button>
+			<button type="submit" class="btn">Sign Up</button>
 		</form>
 	</div>
 
@@ -46,7 +46,7 @@
 			<input type="email" placeholder="email" name="email" class="input" />
 			<input type="password" placeholder="password" name="password" class="input" />
 			<a href="{{ route('password.request') }}" class="link">Forgot your password?</a>
-			<button type="submit" class="btn-login">Sign In</button>
+			<button type="submit" class="btn">Sign In</button>
 		</form>
 	</div>
 
@@ -54,10 +54,10 @@
 	<div class="container__overlay">
 		<div class="overlay">
 			<div class="overlay__panel overlay--left">
-				<button class="btn-login" id="signIn">Sign In</button>
+				<button class="btn" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay__panel overlay--right">
-				<button class="btn-login" id="signUp">Sign Up</button>
+				<button class="btn" id="signUp">Sign Up</button>
 			</div>
 		</div>
 	</div>

@@ -5,10 +5,10 @@
 <form action="{{ action('ArticleCreation@store')}}" method="post">
 @endif
     @csrf
-    <div id="options" class="options" style="margin-left: 10px; margin-bottom: 10px;">
+    <div id="options" class="options">
     <label>Title*</label><br>
-    <input type="text" name="title" value={{ $article ? $article->title : '' }}>
-    <div class="container" style="width: 200px; margin:0; padding:0;">
+    <textarea name="title">{{ $article ? $article->title : '' }}</textarea>
+    <div class="container">
       <label>Date:</label>
       <input class="date form-control" type="text" value={{ $article ? $article->date : '' }}>
     </div>
