@@ -63,4 +63,7 @@ mix.sass("resources/css/admin-layout/admin.scss", "public/css");
 mix.sass("resources/css/admin-layout/navigation.scss", "public/css");
 mix.sass("resources/css/admin-layout/welcome.scss", "public/css");
 mix.js("resources/js/welcome.js", "public/js").react();
+mix.sass("resources/css/admin-layout/datepicker/cdnjs.scss", "public/css/datepicker");
+mix.sass("resources/css/admin-layout/datepicker/cdnjs2.scss", "public/css/datepicker");
+mix.js("resources/js/Page/Lukas/navbar.js", "public/js").react();
 
