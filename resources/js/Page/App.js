@@ -1,9 +1,13 @@
 import CreationForm from "./CreationForm";
 
-const App = () => {
+const App = (data) => {
     return (
         <div>
-            <CreationForm />
+            {typeof data != "undefined" ? (
+                <CreationForm data={data} />
+            ) : (
+                <CreationForm />
+            )}
         </div>
     );
 };

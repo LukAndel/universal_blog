@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('styleset_id')->nullable();
             $table->string('page_title')->nullable();
+            $table->integer('fb_uid')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

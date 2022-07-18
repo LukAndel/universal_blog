@@ -2,7 +2,8 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Preview from './Preview';
 
-const CreationForm = ({pageTitle = null, colorset = null}) => {
+const CreationForm = ({data}) => {
+    const {colorset, pageTitle, sections, fb_uid} = data
     const [values, setValues] = useState({
         colorset: '',
         pageTitle: '',
@@ -61,10 +62,25 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
     // }, [pageTitle, colorset])
     // console.log(customSections)
 
-    console.log(values)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // try
+        // {
+        const response = await axios.post("/page-creation", values);
+        const response_data = response.data;
+        console.log(response_data);
+        // }
+        // catch(error) {
+        // console.log(error); // information about the error
+        // console.log(error.response); // the response object from the failed request
+        // }
+        
+    };
+
+    // console.log(values)
     return (
         <div className='creation'>
-            <form className='form' action="" method="post">
+            <form className='form' onSubmit={handleSubmit}>
                 <label>Name of your page: </label>
                 <input type="text" name="pageTitle" value={values.pageTitle} onChange={handleChange}/>  
                 <br/>
@@ -73,13 +89,13 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
                     <label>Colorset</label>
                     <br/>
                     <label>A</label>
-                    <input type="radio" name="colorset" value="A" checked={values.colorset === "A"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="1" checked={values.colorset === "1"} onChange={(e)=> handleChange(e)} />
                     <br/>
                     <label>B</label>
-                    <input type="radio" name="colorset" value="B" checked={values.colorset === "B"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="2" checked={values.colorset === "2"} onChange={(e)=> handleChange(e)} />
                     <br/>
                     <label>C</label>
-                    <input type="radio" name="colorset" value="C" checked={values.colorset === "C"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="3" checked={values.colorset === "3"} onChange={(e)=> handleChange(e)} />
                 </div>
                 <br/>
                 <div className='sections--selection'>
@@ -116,7 +132,7 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
                 </div>)}
                 <br/>
                 <br/>
-                <button className="btn">Create</button>            
+                <button type='submit' className="btn">Create</button>            
             </form>
             <Preview data={values}/>
         </div>

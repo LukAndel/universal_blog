@@ -3,4 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./Page/App";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-root.render(<App />);
+typeof data != "undefined"
+    ? root.render(<App data={data} />)
+    : root.render(<App />);

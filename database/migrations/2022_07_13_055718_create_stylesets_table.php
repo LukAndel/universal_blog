@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('stylesets', function (Blueprint $table) {
             $table->id();
             $table->foreignId("colorset_id");
-            $table->foreignId("font_id");
+            $table->foreignId("font_id")->nullable();
             $table->timestamps();
         });
     }
