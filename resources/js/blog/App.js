@@ -8,7 +8,7 @@ const App = () => {
                     <a className="skip-link icon-reorder" title="Accéder au menu" href="#menu">Menu</a>
                     <ul id="menu">
                         <li className="active"><a class="icon-home" href="#accueil">Home</a></li>
-                        <li><a className="icon-group" href="#quisommesnous">About Us</a></li>
+                        <li><a className="icon-group" href="#quisommesnous">Categories</a></li>
                         <li><a className="icon-leaf" href="#services">Services</a></li>
                         <li><a className="icon-picture" href="#portfolio">Portfolio</a></li>
                         <li><a className="icon-envelope-alt" href="#contact">Contact</a></li>

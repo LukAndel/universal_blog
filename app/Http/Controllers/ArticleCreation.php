@@ -33,7 +33,6 @@ class ArticleCreation extends Controller
         $article = new Article;
 
         $user = Auth::user();
-        $user = User::find(1);
 
         $article->user_id = $user->id;
         $article->text = $request->input('textarea');
@@ -67,7 +66,6 @@ class ArticleCreation extends Controller
         // dd($request->categories);
 
         $user = Auth::user();
-        $user = User::find(1);
 
         $article = Article::findOrFail($id);
         $article->user_id = $user->id;

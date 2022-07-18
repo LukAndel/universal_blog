@@ -5,4 +5,5 @@
 <div id="root"></div>
 <script src="{{mix('js/blog.js')}}"></script>
 
+<script src="js/Page/Lukas/navbar.sjs" defer></script>
 @endsection

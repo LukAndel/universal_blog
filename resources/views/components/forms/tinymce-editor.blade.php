@@ -68,7 +68,7 @@
   <form action="" method="post">
     @method('delete')
     @csrf
-      <button class="btn" formaction="{{ action('ArticleCreation@delete', [$article->id])}}">delete</button>
+      <button class="btn" style="margin-top: 5px" formaction="{{ action('ArticleCreation@delete', [$article->id])}}">delete</button>
   </form>
   @endif
 </div>

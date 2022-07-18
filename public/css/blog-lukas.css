@@ -1,5 +1,10 @@
 body {
   background-color: #689384;
+  color: #fff;
+}
+
+.categories {
+  font-style: italic;
 }
 
 .main {
