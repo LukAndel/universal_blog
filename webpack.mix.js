@@ -59,8 +59,11 @@ mix.sass("resources/css/blog-layout/basic.scss", "public/css");
 mix.sass("resources/css/blog-layout/blog-lukas.scss", "public/css");
 mix.sass("resources/css/blog-layout/blog-jiri.scss", "public/css");
 mix.sass("resources/css/blog-layout/blog-oskar.scss", "public/css");
-mix.postCss("resources/css/admin-layout/admin.css", "public/css");
+mix.sass("resources/css/admin-layout/admin.scss", "public/css");
 mix.sass("resources/css/admin-layout/navigation.scss", "public/css");
 mix.sass("resources/css/admin-layout/welcome.scss", "public/css");
 mix.js("resources/js/welcome.js", "public/js").react();
+mix.sass("resources/css/admin-layout/datepicker/cdnjs.scss", "public/css/datepicker");
+mix.sass("resources/css/admin-layout/datepicker/cdnjs2.scss", "public/css/datepicker");
+mix.js("resources/js/Page/Lukas/navbar.js", "public/js").react();
 

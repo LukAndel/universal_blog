@@ -1,15 +1,18 @@
-
+// import 'js/navbar';
 
 const App = () => {
     return (
         <div>
             <header>
-                <div className="title__background">background img or logo</div>
-                <nav className="navigation-blog">
-                    <a href="#">Home</a>
-                    <a href="#">Categories</a>
-                    <a href="#">Gallery</a>
-                    <a href="#">Calendar</a>
+                <nav role="navigation" id="access">
+                    <a className="skip-link icon-reorder" title="Accéder au menu" href="#menu">Menu</a>
+                    <ul id="menu">
+                        <li className="active"><a class="icon-home" href="#accueil">Home</a></li>
+                        <li><a className="icon-group" href="#quisommesnous">About Us</a></li>
+                        <li><a className="icon-leaf" href="#services">Services</a></li>
+                        <li><a className="icon-picture" href="#portfolio">Portfolio</a></li>
+                        <li><a className="icon-envelope-alt" href="#contact">Contact</a></li>
+                    </ul>
                 </nav>
             </header>
             <div className="articles">
