@@ -28,8 +28,11 @@ Route::get('/page-creation', 'PageController@create')->name('page-creation');
 Route::post('/page-creation', 'PageController@store');
 
 
+Route::get('upload', 'UploadController@display')->name('upload');
+Route::post('upload', 'UploadController@store');
+
+
+
 Route::get('/{name}/{id}', 'ArticleCreation@display')->name('article-show');
-
-
 
 Route::get('/{name}', 'BlogController@display')->name('blog');

@@ -3,14 +3,17 @@
 @section('blog-content')
     
 
-    Title: {!!$article->title!!}
+    <h1>{!!$article->title!!}</h1>
     <br>
-    Categories: @foreach ($categories as $item)
+    <div class="categories">
+    @foreach ($categories as $item)
         {{$item['name']}} ||
     @endforeach
+    </div>
     <br>
-    Text: {!!$article->text!!}
-
+    <br>
+    {!!$article->text!!}
+    
     @auth
         <a href="/article-creation/{{$article->id}}"><button>to edit</button></a>
     @endauth
