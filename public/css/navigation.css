@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 *:before, *:after {
@@ -8,6 +7,7 @@
 }
 
 .navigation {
+  font-family: Arial, Helvetica, sans-serif;
   background: rgba(0, 0, 0, 0.7);
   color: #555;
   position: absolute;

@@ -12,51 +12,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
+/* harmony import */ var _Articles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Articles */ "./resources/js/blog/Articles.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 // import 'js/navbar';
+// import 'css/blog-lukas.css';
+
+
+
+
+
 var App = function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("nav", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("header", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
         role: "navigation",
         id: "access",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           className: "skip-link icon-reorder",
           title: "Acc\xE9der au menu",
           href: "#menu",
           children: "Menu"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
           id: "menu",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             className: "active",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               "class": "icon-home",
               href: "#accueil",
               children: "Home"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               className: "icon-group",
               href: "#quisommesnous",
               children: "Categories"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               className: "icon-leaf",
               href: "#services",
               children: "Services"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               className: "icon-picture",
               href: "#portfolio",
               children: "Portfolio"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
               className: "icon-envelope-alt",
               href: "#contact",
               children: "Contact"
@@ -64,72 +68,104 @@ var App = function App() {
           })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "articles",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "N\u011Bmeck\xE1 Alpsk\xE1 cesta - cesta pln\xE1 horsk\xFDch jezer a kr\xE1sn\xFDch v\xFDhled\u016F"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "main",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "articles",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Articles__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "article",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "article__title",
+            children: "Destinace 2019"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "article__text",
+            children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "article",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "article__title",
+            children: "Relax v centru Prahy"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "article__text",
+            children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "article",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "article__title",
+            children: "Tipy na v\xE1no\u010Dn\xED d\xE1rky"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "article__text",
+            children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "article",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "article__title",
+            children: "Kdy\u017E ti jeden p\xE1d na zadek zm\u011Bn\xED \u017Eivot.. \u010D. IV"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "article__text",
+            children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "article",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+            className: "article__title",
+            children: "Kdy\u017E ti jeden p\xE1d na zadek zm\u011Bn\xED \u017Eivot.. \u010D. III"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "article__text",
+            children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+          })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "Destinace 2019"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "Relax v centru Prahy"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "Tipy na v\xE1no\u010Dn\xED d\xE1rky"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "Kdy\u017E ti jeden p\xE1d na zadek zm\u011Bn\xED \u017Eivot.. \u010D. IV"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: "article",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          className: "article__title",
-          children: "Kdy\u017E ti jeden p\xE1d na zadek zm\u011Bn\xED \u017Eivot.. \u010D. III"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          className: "article__text",
-          children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
-        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("footer", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "footer"
+        })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("footer", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "footer"
-      })
     })]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
+/***/ "./resources/js/blog/Articles.jsx":
+/*!****************************************!*\
+  !*** ./resources/js/blog/Articles.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Articles = function Articles() {
+  // const [articles, setArticles] = useState("");
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "articles",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "article",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        className: "article__title",
+        children: "N\u011Bmeck\xE1 Alpsk\xE1 cesta - cesta pln\xE1 horsk\xFDch jezer a kr\xE1sn\xFDch v\xFDhled\u016F"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "article__text",
+        children: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!"
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Articles);
 
 /***/ }),
 

@@ -57,7 +57,7 @@
   </div>
     <br><label>Title*</label><br>
     <textarea name="title" style="width: 90%; height: 30px">{{ $article ? $article->title : '' }}</textarea>
-    <textarea id="textarea" name="textarea">{{ $article ? $article->text : '' }}</textarea>
+    <textarea id="textarea" name="textarea" style="height: 2000px">{{ $article ? $article->text : '' }}</textarea>
     <div class="btn-container">
       <button class="btn">submit</button>
 

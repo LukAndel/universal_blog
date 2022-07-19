@@ -13,6 +13,7 @@
   @auth
   <h1><a href="{{url('/page-creation')}}">Page Creation</a></h1>
   <h1><a href="{{url('/article-creation')}}">New Article</a></h1>
+  <h1><a href="{{url('/upload')}}">Upload</a></h1>
   <h1><a href="{{url('/blog')}}">Your Page</a></h1>
   @endauth
   @auth
