@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->hasMany(Section::class);
     }
 
+    public function getSectionNames()
+    {
+        return $this->sections()->get(['id', 'name']);
+    }
+
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');

@@ -2,14 +2,32 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Preview from './Preview';
 
-const CreationForm = ({data}) => {
-    const {colorset, pageTitle, sections, fb_uid} = data
-    const [values, setValues] = useState({
+const CreationForm = () => {
+
+    const [formValues, setFormValues] = useState({
         colorset: '',
         pageTitle: '',
         sections: [],
         fb_uid: ''
     });
+    
+    const fetchData = async () => {
+        const response = await axios.get("/api/page-creation/data");
+            console.log(response.data.data)   
+        setFormValues(response.data.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    
+    
+    
+    // if (data !== null) {
+    // const {colorset, pageTitle, sections, fb_uid} = data}
+
 
     const [customInput, setCustomInput] = useState("");
     const handleCustom = (e) => {
@@ -24,20 +42,30 @@ const CreationForm = ({data}) => {
     const handleCheck = (e) => {
 
             if (e.target.checked) {
-                const updatedList = [...values.sections, e.target.value];
+                const dataString = e.target.value;
+                const id = dataString.split('||')[0]
+                const name = dataString.split('||')[1]
+                const newRecord = {
+                    id: id,
+                    name: name
+                }
+                console.log(newRecord)  
 
-                setValues({ ...values, sections: updatedList });
+
+                // const updatedList = [...formValues.sections, e.target.value];
+
+                // setFormValues({ ...formValues, sections: updatedList });
             } else {
-                const updatedList = values.sections?.filter((element) => element !== e.target.value);
+                const updatedList = formValues.sections?.filter((element) => element !== e.target.value);
 
-                setValues({ ...values, sections: updatedList });
+                setFormValues({ ...formValues, sections: updatedList });
             }
         
     };
 
     const handleChange = (e) => {
 
-        setValues((previous_values) => {
+        setFormValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
@@ -66,9 +94,9 @@ const CreationForm = ({data}) => {
         e.preventDefault();
         // try
         // {
-        const response = await axios.post("/page-creation", values);
+        const response = await axios.post("/page-creation", formValues);
         const response_data = response.data;
-        console.log(response_data);
+        // console.log(response_data);
         // }
         // catch(error) {
         // console.log(error); // information about the error
@@ -82,33 +110,33 @@ const CreationForm = ({data}) => {
         <div className='creation'>
             <form className='form' onSubmit={handleSubmit}>
                 <label>Name of your page: </label>
-                <input type="text" name="pageTitle" value={values.pageTitle} onChange={handleChange}/>  
+                <input type="text" name="pageTitle" value={formValues.pageTitle} onChange={handleChange}/>  
                 <br/>
                 <br/>
                 <div className='colorset--selection'>
                     <label>Colorset</label>
                     <br/>
                     <label>A</label>
-                    <input type="radio" name="colorset" value="1" checked={values.colorset === "1"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="1" checked={formValues.colorset == "1"} onChange={(e)=> handleChange(e)} />
                     <br/>
                     <label>B</label>
-                    <input type="radio" name="colorset" value="2" checked={values.colorset === "2"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="2" checked={formValues.colorset == "2"} onChange={(e)=> handleChange(e)} />
                     <br/>
                     <label>C</label>
-                    <input type="radio" name="colorset" value="3" checked={values.colorset === "3"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="3" checked={formValues.colorset == "3"} onChange={(e)=> handleChange(e)} />
                 </div>
                 <br/>
                 <div className='sections--selection'>
                     <label>Choose sections</label>
                     <br/>
                     <label>Home</label>
-                    <input type="checkbox" value="Home" onChange={handleCheck}/>
+                    <input type="checkbox" value="1||Home" onChange={handleCheck}/>
                     <label>Categories</label>
-                    <input type="checkbox" value="Categories" onChange={handleCheck}/>
+                    <input type="checkbox" value="2||Categories" onChange={handleCheck}/>
                     <label>About</label>
-                    <input type="checkbox" value="About" onChange={handleCheck}/>
+                    <input type="checkbox" value="3||About" onChange={handleCheck}/>
                     <label>Contact</label>
-                    <input type="checkbox" value="Contact" onChange={handleCheck}/>
+                    <input type="checkbox" value="4||Contact" onChange={handleCheck}/>
                     {
                         customSections && customSections.map((section, i)=> (
                             <div className='selections--selector' key={i}>
@@ -128,13 +156,13 @@ const CreationForm = ({data}) => {
                 <div className='fb_uid'>
                     <p><em>If you want to use Facebook comments under selected articles, you need to provide user id to be able to manage them. You can find your own <a target="_blank" href='https://lookup-id.com'>here</a>.</em></p>
                     <label>Facebook User ID</label>
-                    <input type="text" value={values.fb_uid} onChange={handleChange}/>
+                    <input type="text" value={formValues.fb_uid} onChange={handleChange}/>
                 </div>)}
                 <br/>
                 <br/>
                 <button type='submit' className="btn">Create</button>            
             </form>
-            <Preview data={values}/>
+            {/* <Preview data={formValues}/> */}
         </div>
     )
 }

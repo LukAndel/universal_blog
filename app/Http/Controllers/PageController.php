@@ -35,14 +35,8 @@ class PageController extends Controller
             $sections->save();
         }
 
-        $data = $request->all();
+        // $data = $request->all();
 
-        return redirect()->action('PageController@edit');
-    }
-    public function edit()
-    {
-        $user = Auth::user();
-        // dd($user);
-        return view('page.page');
+        return 'hello';
     }
 }

@@ -77,12 +77,32 @@ class ArticleCreation extends Controller
 
         $article->save();
 
-        foreach ($request->categories as $key => $name) {
+
+        foreach ($article->categories as $category) {
+
+            // $arrSearch = array_search($category->name, $request->categories);
+
+            // dd(array_search($category->name, $request->categories));
+
+            if (array_search($category->name, $request->categories) === false) {
+                $article->categories()->detach($category->id);
+                $onlyConnection = count($category->articles) <= 1;
+                if ($onlyConnection) {
+                    $category->delete();
+                };
+            }
+        }
+
+        // $article->categories()->detach();
+
+        foreach ($request->categories as $name) {
 
 
             if (Category::where('name', $name)->first()) {
-                // $category = Category::where('name', $name)->first();
-                // $article->categories()->attach($category->id);
+                if (!($article->categories()->where('name', $name)->exists())) {
+                    $category = Category::where('name', $name)->first();
+                    $article->categories()->attach($category->id);
+                };
             } else {
                 $category = new Category;
                 $category->name = $name;
@@ -91,6 +111,8 @@ class ArticleCreation extends Controller
                 $article->categories()->attach($category->id);
             }
         };
+
+
 
 
         return redirect()->route('article-show', [$user->name, $article->id]);

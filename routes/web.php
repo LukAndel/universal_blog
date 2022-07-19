@@ -25,7 +25,6 @@ Route::put('article-creation/{id}', 'ArticleCreation@edit');
 Route::delete('article-creation/{id}', 'ArticleCreation@delete');
 
 Route::get('/page-creation', 'PageController@create')->name('page-creation');
-Route::get('/page-creation/edit', 'PageController@edit');
 Route::post('/page-creation', 'PageController@store');
 
 

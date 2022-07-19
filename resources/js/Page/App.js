@@ -1,13 +1,21 @@
 import CreationForm from "./CreationForm";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const App = (data) => {
+const App = () => {
+    const [data, setData] = useState(null);
+    const fetchData = async () => {
+        const response = await axios.get("/api/page-creation/data");
+        setData(response.data.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div>
-            {typeof data != "undefined" ? (
-                <CreationForm data={data} />
-            ) : (
-                <CreationForm />
-            )}
+            <CreationForm data={data} />
         </div>
     );
 };
