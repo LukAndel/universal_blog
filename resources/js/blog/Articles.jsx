@@ -1,20 +1,31 @@
 import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 const Articles = () => {
-    // const [articles, setArticles] = useState("");
+    const [articles, setArticles] = useState([]);
 
+    const fetchArticles = async () => {
+        const response = await axios.get("api/blog/articles");
+        console.log(response.data);
+        setArticles(response.data);
+    };
 
+    useEffect (() => {
+        fetchArticles();
+    }, []);
 
 
 
 
     return (
-        <div className="articles">
-                <div className="article">
-                    <h2 className="article__title">Německá Alpská cesta - cesta plná horských jezer a krásných výhledů</h2>
-                    <p className="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!</p>
+<>
+            {articles.map((article) => (
+                <div className="article" key={article.id}>
+                    <h2 className="article__title">{article.title}</h2>
+                    <p className="article__text">{article.text}</p>
                 </div>
-        </div>
+            ))}
+</>
     );
 }
 

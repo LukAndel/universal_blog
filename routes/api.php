@@ -24,3 +24,6 @@ Route::get(
         return json_encode(['message' => 'hello']);
     }
 );
+
+Route::get('blog/articles', 'BlogController@getArticles');
+Route::get('blog/user', 'BlogController@getUser');

@@ -122,6 +122,9 @@ class ArticleCreation extends Controller
         $article = Article::where('id', $id)->first();
         $categories = $article->categories()->get();
 
+        $id = Auth::id();
+        dd($id);
+        
 
         return view('article.article-view', compact('user', 'article', 'categories'));
     }
@@ -134,6 +137,7 @@ class ArticleCreation extends Controller
 
         $isNew = true;
 
+        
         return redirect()->route('article-creation', ['isNew' => $isNew]);
     }
 }
