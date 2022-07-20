@@ -4,7 +4,6 @@ import axios from 'axios';
 const Categories = () => {
 
     const [categoriesData, setCategoriesData] = useState(null);
-    // const [uniqueCategory, setUniqueCategory] = useState(null);
 
     const fetchCategories = async () => {
         const response = await axios.get("/api/blog/categories");
@@ -27,14 +26,8 @@ const Categories = () => {
         return result;
     }, {});
 
-    console.log(categoryMap);
 
-    //         if (categoryMap !== []) {
-    //         categoryMap.map((category) => {
-    //             if (!setUniqueCategory.includes(category)) {
-    //                 setUniqueCategory.push(category);
-    //             }
-    // })}
+
     let uniqueArray = [];
 
     for (let i = 0; i < categoryMap[0].length; i++) {
