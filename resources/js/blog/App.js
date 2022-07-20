@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import Article from "./Article";
+import Categories from "./Categories";
 
 const App = () => {
 
@@ -44,7 +45,7 @@ const App = () => {
                             <Article />
                         } />
 
-
+                    <Route exact path={'/'+user.name+'/categories'} element={<Categories />} />
                 </Routes>
                 <footer>
                     <div className="footer"></div>

@@ -6,7 +6,7 @@ const Articles = ({ user }) => {
     const [articles, setArticles] = useState([]);
 
     const fetchArticles = async () => {
-        const response = await axios.get("api/blog/articles");
+        const response = await axios.get("/api/blog/articles");
         setArticles(response.data);
     };
 

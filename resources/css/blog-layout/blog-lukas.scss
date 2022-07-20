@@ -2,7 +2,7 @@ $primary-color: rgb(6, 40, 61);
 $secondary-color: #689384;
 $tertiary-color: #5a4741;
 $quaternary-color:#fff;
-$ff: 'Indie Flower', cursive;
+$ff: 'Edu NSW ACT Foundation', cursive;
 
 
 body{
@@ -19,7 +19,7 @@ body{
     margin-right: 20%;
     margin-top: -10px;
     border: solid $tertiary-color 0.5px;
-    background-color: #5a4741;
+    background-color: $tertiary-color;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;

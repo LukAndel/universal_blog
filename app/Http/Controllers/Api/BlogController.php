@@ -38,8 +38,9 @@ class BlogController extends Controller
 
     public function getCategories()
     {
-        $userId = Auth::id();
-        $categories = $userId->categories;
+        $id = Auth::id();
+        $categories = Article::where('user_id', $id)->with('categories')->get();
+        // $categories = $articles->categories;
 
         return $categories;
     }
