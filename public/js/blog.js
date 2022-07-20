@@ -2187,7 +2187,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Navbar = function Navbar() {
+var Navbar = function Navbar(_ref) {
+  var user = _ref.user;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
       active = _useState2[0],
@@ -2195,23 +2197,23 @@ var Navbar = function Navbar() {
 
   var links = [{
     label: 'Home',
-    path: '/blog/',
+    path: '/' + user.name,
     id: 0
   }, {
     label: 'Categories',
-    path: '/blog/categories',
+    path: '/' + user.name + '/categories',
     id: 1
   }, {
     label: 'Services',
-    path: '/blog/services',
+    path: '/' + user.name + '/services',
     id: 2
   }, {
     label: 'Portfolio',
-    path: '/blog/services',
+    path: '/' + user.name + '/services',
     id: 3
   }, {
     label: 'Contact',
-    path: '/blog/contact',
+    path: '/' + user.name + '/contact',
     id: 4
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
@@ -2407,9 +2409,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Article = function Article() {
+  var _article$categories;
+
   var params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       article = _useState2[0],
       setArticle = _useState2[1];
@@ -2422,14 +2426,13 @@ var Article = function Article() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/blog/article/".concat(params));
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/blog/article/".concat(params.article_id));
 
             case 2:
               response = _context.sent;
-              console.log(response.data);
               setArticle(response.data);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2445,14 +2448,21 @@ var Article = function Article() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchArticle();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  var text = article.text;
+  return article == [] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+    children: "loading"
+  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "article-view",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "title"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "date / categories"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-      children: "text"
+      children: article.title
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+      children: [article.date, " / ", (_article$categories = article.categories) === null || _article$categories === void 0 ? void 0 : _article$categories.map(function (article) {
+        return article.name + ' || ';
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      dangerouslySetInnerHTML: {
+        __html: text
+      }
     })]
   });
 };

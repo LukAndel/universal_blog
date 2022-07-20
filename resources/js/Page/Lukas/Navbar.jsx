@@ -2,25 +2,25 @@ import React, {useState} from 'react'
 
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({user}) => {
 
     const [active, setAcive] = useState(0)
 
     const links = [
         {
-            label: 'Home', path:'/blog/', id: 0
+            label: 'Home', path:'/' + user.name, id: 0
         },
         {
-            label: 'Categories', path:'/blog/categories', id: 1
+            label: 'Categories', path: '/' + user.name + '/categories', id: 1
         },
         {
-            label: 'Services', path:'/blog/services', id: 2
+            label: 'Services', path:'/' + user.name + '/services', id: 2
         },
         {
-            label: 'Portfolio', path:'/blog/services', id: 3
+            label: 'Portfolio', path:'/' + user.name + '/services', id: 3
         },
         {
-            label: 'Contact', path:'/blog/contact', id: 4
+            label: 'Contact', path:'/' + user.name + '/contact', id: 4
         },
     ]
 
