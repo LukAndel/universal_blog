@@ -2251,15 +2251,20 @@ var CreationForm = function CreationForm() {
       defaultSections = _useState2[0],
       setDefaultSections = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      defaultColorsets = _useState4[0],
+      setDefaultColorsets = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     colorset: '',
     pageTitle: '',
     sections: [],
     fb_uid: ''
   }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      formValues = _useState4[0],
-      setFormValues = _useState4[1];
+      _useState6 = _slicedToArray(_useState5, 2),
+      formValues = _useState6[0],
+      setFormValues = _useState6[1];
 
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -2317,9 +2322,38 @@ var CreationForm = function CreationForm() {
     };
   }();
 
+  var fetchColorsets = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var response;
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/page-creation/colorsets");
+
+            case 2:
+              response = _context3.sent;
+              // console.log(response.data)
+              setDefaultColorsets(response.data);
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function fetchColorsets() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchData();
     fetchSections();
+    fetchColorsets();
   }, []); // const [customInput, setCustomInput] = useState("");
   // const handleCustom = (e) => {
   //     setCustomInput(e.target.value)
@@ -2361,10 +2395,10 @@ var CreationForm = function CreationForm() {
     });
   };
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      showFB = _useState6[0],
-      setShowFB = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      showFB = _useState8[0],
+      setShowFB = _useState8[1];
 
   var showFBInput = function showFBInput() {
     setShowFB(!showFB);
@@ -2377,20 +2411,20 @@ var CreationForm = function CreationForm() {
 
 
   var handleSubmit = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(e) {
       var response, response_data;
-      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      return _regeneratorRuntime().wrap(function _callee4$(_context4) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
               e.preventDefault(); // try
               // {
 
-              _context3.next = 3;
+              _context4.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/page-creation", formValues);
 
             case 3:
-              response = _context3.sent;
+              response = _context4.sent;
               response_data = response.data;
               console.log(response_data); // }
               // catch(error) {
@@ -2400,14 +2434,14 @@ var CreationForm = function CreationForm() {
 
             case 6:
             case "end":
-              return _context3.stop();
+              return _context4.stop();
           }
         }
-      }, _callee3);
+      }, _callee4);
     }));
 
     return function handleSubmit(_x) {
-      return _ref3.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }(); // console.log(formValues)  
   // console.log(values)
@@ -2429,36 +2463,39 @@ var CreationForm = function CreationForm() {
         className: "colorset--selection",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           children: "Colorset"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          children: "A"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "radio",
-          name: "colorset",
-          value: "1",
-          checked: formValues.colorset == "1",
-          onChange: function onChange(e) {
-            return handleChange(e);
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          children: "B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "radio",
-          name: "colorset",
-          value: "2",
-          checked: formValues.colorset == "2",
-          onChange: function onChange(e) {
-            return handleChange(e);
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-          children: "C"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "radio",
-          name: "colorset",
-          value: "3",
-          checked: formValues.colorset == "3",
-          onChange: function onChange(e) {
-            return handleChange(e);
-          }
+        }), defaultColorsets.map(function (colorset, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+            className: "colorsetbox",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "radio",
+              name: "colorset",
+              value: i + 1,
+              checked: formValues.colorset == i + 1,
+              onChange: function onChange(e) {
+                return handleChange(e);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "colorpickbox",
+              style: {
+                backgroundColor: colorset.color_1
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "colorpickbox",
+              style: {
+                backgroundColor: colorset.color_2
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "colorpickbox",
+              style: {
+                backgroundColor: colorset.color_3
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "colorpickbox",
+              style: {
+                backgroundColor: colorset.color_4
+              }
+            })]
+          }, i);
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "sections--selection",

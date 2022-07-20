@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/page-creation/data', 'PageController@data');
 Route::get('/page-creation/sections', 'PageController@getSections');
+Route::get('/page-creation/colorsets', 'PageController@getColorsets');
 Route::get(
     '/',
     function () {
@@ -30,4 +31,3 @@ Route::get('blog/articles', 'BlogController@getArticles');
 Route::get('blog/article/{id}', 'BlogController@getArticle');
 Route::get('blog/user', 'BlogController@getUser');
 Route::get('blog/categories', 'BlogController@getCategories');
-
