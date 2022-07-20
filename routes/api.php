@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/page-creation/data', 'PageController@data');
+Route::get('/page-creation/sections', 'PageController@getSections');
+Route::get(
+    '/',
+    function () {
+        return json_encode(['message' => 'hello']);
+    }
+);
+
+Route::get('blog/articles', 'BlogController@getArticles');
+Route::get('blog/article/{id}', 'BlogController@getArticle');
+Route::get('blog/user', 'BlogController@getUser');
+Route::get('blog/categories', 'BlogController@getCategories');
+

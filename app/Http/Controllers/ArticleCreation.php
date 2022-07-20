@@ -40,14 +40,15 @@ class ArticleCreation extends Controller
         $article = new Article;
 
         $user = Auth::user();
-        
-
+        // dd($request->input("date"));
         $article->user_id = $user->id;
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
         $article->date = $request->input('date');
         
         $article->save();
+
+
 
         foreach ($request->categories as $key => $name) {
 
@@ -66,7 +67,7 @@ class ArticleCreation extends Controller
 
 
 
-        return redirect()->route('article-show', [$user->name, $article->id]);
+        return redirect()->route('article-show', [$article->id]);
     }
 
     public function edit(Request $request, $id)
@@ -74,7 +75,6 @@ class ArticleCreation extends Controller
         // dd($request->categories);
 
         $user = Auth::user();
-        $user = User::find(1);
 
         $article = Article::findOrFail($id);
         $article->user_id = $user->id;
@@ -84,12 +84,32 @@ class ArticleCreation extends Controller
 
         $article->save();
 
-        foreach ($request->categories as $key => $name) {
+
+        foreach ($article->categories as $category) {
+
+            // $arrSearch = array_search($category->name, $request->categories);
+
+            // dd(array_search($category->name, $request->categories));
+            // dd($request->categories);
+            if (array_search($category->name, $request->categories) === false) {
+                $article->categories()->detach($category->id);
+                $onlyConnection = (count($category->articles) <= 1);
+                if ($onlyConnection) {
+                    $category->delete();
+                };
+            }
+        }
+
+        // $article->categories()->detach();
+
+        foreach ($request->categories as $name) {
 
 
             if (Category::where('name', $name)->first()) {
-                // $category = Category::where('name', $name)->first();
-                // $article->categories()->attach($category->id);
+                if (!($article->categories()->where('name', $name)->exists())) {
+                    $category = Category::where('name', $name)->first();
+                    $article->categories()->attach($category->id);
+                };
             } else {
                 $category = new Category;
                 $category->name = $name;
@@ -100,17 +120,19 @@ class ArticleCreation extends Controller
         };
 
 
-        return redirect()->route('article-show', [$user->name, $article->id]);
+
+
+        return redirect()->route('article-show', [$article->id]);
     }
 
-    public function display($name, $id)
+    public function display($id)
     {
-        $user = User::where('name', $name)->first();
+
         $article = Article::where('id', $id)->first();
         $categories = $article->categories()->get();
 
 
-        return view('article.article-view', compact('user', 'article', 'categories'));
+        return view('article.article-view', compact('article', 'categories'));
     }
 
     public function delete($id)
@@ -120,6 +142,7 @@ class ArticleCreation extends Controller
         $article->delete();
 
         $isNew = true;
+
 
         return redirect()->route('article-creation', ['isNew' => $isNew]);
     }
