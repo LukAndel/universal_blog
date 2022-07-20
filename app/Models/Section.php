@@ -9,8 +9,12 @@ class Section extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'pivot',
+    ];
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

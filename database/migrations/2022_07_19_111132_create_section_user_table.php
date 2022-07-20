@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sections', function (Blueprint $table) {
+        Schema::create('section_user', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->timestamps();
+            $table->foreignId('section_id');
+            $table->foreignId('user_id');
+            $table->unique(['section_id', 'user_id']);
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sections');
+        Schema::dropIfExists('section_user');
     }
 };

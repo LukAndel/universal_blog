@@ -18,8 +18,7 @@ class PageResource extends JsonResource
             'pageTitle' => $this->page_title,
             'colorset' => $this->styleset->colorset_id,
             'fb_uid' => $this->fb_uid,
-            'sections' => $this->getSectionNames(),
-
+            'sections' => $this->getSectionNames()
         ];
     }
 }

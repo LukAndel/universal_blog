@@ -28,15 +28,22 @@ class PageController extends Controller
         $user->page_title = $request->pageTitle;
         $user->save();
 
-        foreach ($request->sections as $key => $name) {
-            $sections = new Section;
-            $sections->user_id = $user->id;
-            $sections->name = $name;
-            $sections->save();
+        foreach ($user->sections as $section) {
+            if (array_search($section->name, $request->sections) === false) {
+                $user->sections()->detach($section->id);
+            }
         }
+        foreach ($request->sections as $name) {
+            if (Section::where('name', $name['name'])->first()) {
+                if (!($user->sections()->where('name', $name['name'])->exists())) {
+                    $section = Section::where('name', $name['name'])->first();
+                    $user->sections()->attach($section->id);
+                }
+            }
 
-        // $data = $request->all();
+            // $data = $request->all();
 
-        return 'hello';
+            return $request->all();
+        }
     }
 }

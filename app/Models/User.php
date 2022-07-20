@@ -31,6 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        // 'pivot',
     ];
 
     /**
@@ -60,12 +61,12 @@ class User extends Authenticatable
     }
     public function sections()
     {
-        return $this->hasMany(Section::class);
+        return $this->belongsToMany(Section::class);
     }
 
     public function getSectionNames()
     {
-        return $this->sections()->get(['id', 'name']);
+        return $this->sections()->get(['sections.name']);
     }
 
     public function roles()

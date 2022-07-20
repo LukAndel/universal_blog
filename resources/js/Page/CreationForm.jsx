@@ -3,7 +3,7 @@ import axios from 'axios';
 import Preview from './Preview';
 
 const CreationForm = () => {
-
+    const [defaultSections, setDefaultSections] = useState([])
     const [formValues, setFormValues] = useState({
         colorset: '',
         pageTitle: '',
@@ -13,20 +13,21 @@ const CreationForm = () => {
     
     const fetchData = async () => {
         const response = await axios.get("/api/page-creation/data");
-            console.log(response.data.data)   
+            // console.log(response.data.data)   
         setFormValues(response.data.data);
     };
 
+    const fetchSections = async () => {
+        const response = await axios.get("/api/page-creation/sections");
+        // console.log(response.data)
+        setDefaultSections(response.data)
+    }
+
     useEffect(() => {
         fetchData();
+        fetchSections();
     }, []);
 
-
-    
-    
-    
-    // if (data !== null) {
-    // const {colorset, pageTitle, sections, fb_uid} = data}
 
 
     const [customInput, setCustomInput] = useState("");
@@ -40,26 +41,26 @@ const CreationForm = () => {
 
     
     const handleCheck = (e) => {
-
-            if (e.target.checked) {
-                const dataString = e.target.value;
-                const id = dataString.split('||')[0]
-                const name = dataString.split('||')[1]
+            
+                // const dataString = e.target.value;
+                // const id = Number(dataString.split('||')[0])
+                // const name = dataString.split('||')[1]
                 const newRecord = {
-                    id: id,
-                    name: name
+                    name: e.target.value,
                 }
-                console.log(newRecord)  
+                // console.log(newRecord)
+                
+            if (e.target.checked) {
 
+                const updatedList = [...formValues.sections, newRecord];
 
-                // const updatedList = [...formValues.sections, e.target.value];
-
-                // setFormValues({ ...formValues, sections: updatedList });
+                setFormValues({ ...formValues, sections: updatedList });
             } else {
-                const updatedList = formValues.sections?.filter((element) => element !== e.target.value);
+                const updatedList = formValues.sections?.filter((element) => element['name'] !== newRecord['name']);
 
                 setFormValues({ ...formValues, sections: updatedList });
             }
+            
         
     };
 
@@ -104,6 +105,7 @@ const CreationForm = () => {
         // }
         
     };
+    // console.log(formValues)  
 
     // console.log(values)
     return (
@@ -129,26 +131,38 @@ const CreationForm = () => {
                 <div className='sections--selection'>
                     <label>Choose sections</label>
                     <br/>
-                    <label>Home</label>
+                    {defaultSections.map((defaultSection, i)=>(
+                        <div className='section' key={i}>
+                        <label>{defaultSection.name}</label>
+                        <input type="checkbox" value={defaultSection.name}
+                        checked={!!formValues?.sections?.filter((element) => element.name === defaultSection.name)?.length}
+                        onChange={handleCheck}/>
+                        </div>
+                    ))}
+
+                    
+
+
+                    {/* <label>Home</label>
                     <input type="checkbox" value="1||Home" onChange={handleCheck}/>
                     <label>Categories</label>
                     <input type="checkbox" value="2||Categories" onChange={handleCheck}/>
                     <label>About</label>
                     <input type="checkbox" value="3||About" onChange={handleCheck}/>
                     <label>Contact</label>
-                    <input type="checkbox" value="4||Contact" onChange={handleCheck}/>
-                    {
+                    <input type="checkbox" value="4||Contact" onChange={handleCheck}/> */}
+                    {/* {
                         customSections && customSections.map((section, i)=> (
                             <div className='selections--selector' key={i}>
                                 <label>{section}</label>
                                 <input type="checkbox" value={section} onChange={handleCheck}/>
                             </div>                   
                         ))
-                    }
-                    <br/>
+                    } */}
+                    {/* <br/>
                     <label>Add your own section: </label>
                     <input type="text" value={customInput} onChange={handleCustom} />
-                    <button type="button" onClick={addSection} className="btn">Add</button>
+                    <button type="button" onClick={addSection} className="btn">Add</button> */}
                 </div>
                 <br/>
                     <button type="button" onClick={showFBInput} className="btn facebook">Enable Facebook comments</button>
@@ -162,7 +176,7 @@ const CreationForm = () => {
                 <br/>
                 <button type='submit' className="btn">Create</button>            
             </form>
-            {/* <Preview data={formValues}/> */}
+            <Preview data={formValues}/>
         </div>
     )
 }

@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/page-creation/data', 'PageController@data');
+Route::get('/page-creation/sections', 'PageController@getSections');
 Route::get(
     '/',
     function () {

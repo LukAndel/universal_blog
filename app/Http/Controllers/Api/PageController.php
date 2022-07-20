@@ -22,4 +22,9 @@ class PageController extends Controller
         // dd($page);
         return new PageResource($details);
     }
+    public function getSections()
+    {
+        $sections = Section::select('id', 'name')->get();
+        return $sections;
+    }
 }
