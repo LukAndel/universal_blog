@@ -15,6 +15,12 @@
         </div>
     @endif
 
+    @if(session('status'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('success')}}
+        </div>
+    @endif
+
     <form action="{{ route('password.email') }}" method="post">
 
         @csrf

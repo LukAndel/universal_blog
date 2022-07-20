@@ -21,7 +21,7 @@ Route::get('article-creation','ArticleCreation@create')->name('article-creation'
 Route::post('article-creation','ArticleCreation@store');
 
 Route::get('article-creation/{id}','ArticleCreation@show');
-Route::put('article-creation/{id}','ArticleCreation@edit');
+Route::post('article-creation/{id}','ArticleCreation@edit');
 Route::delete('article-creation/{id}','ArticleCreation@delete');
 
 Route::get('page-creation', 'PageController@create')->name('page-creation');

@@ -64,7 +64,7 @@ const CreationForm = ({pageTitle = null, colorset = null}) => {
     console.log(values)
     return (
         <div className='creation'>
-            <form className='form' action="" method="post">
+            <form className='form' action="/" method="post">
                 <label>Name of your page: </label>
                 <input type="text" name="pageTitle" value={values.pageTitle} onChange={handleChange}/>  
                 <br/>

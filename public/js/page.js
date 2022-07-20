@@ -2312,7 +2312,7 @@ var CreationForm = function CreationForm(_ref) {
     className: "creation",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       className: "form",
-      action: "",
+      action: "/",
       method: "post",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
         children: "Name of your page: "
