@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-const Navbar = ({user}) => {
+const Navbar = ({ user }) => {
 
     const [active, setActive] = useState(0);
     
+    const [categories, setCategories] = useState([])
+
+    const [openCategories, setOpenCategories] = useState(false)
 
     const links = [
         {
@@ -25,22 +28,19 @@ const Navbar = ({user}) => {
         },
     ]
 
-    const [categoriesData, setCategoriesData] = useState(null);
 
-    const fetchCategories = async () => {
+    const action = (async() => {
+
         const response = await axios.get("/api/blog/categories");
-        setCategoriesData(response.data);
-    };
 
-    useEffect (() => {
-        fetchCategories();
-    }, []);
+        const categoriesData = await response.data
+        
+        if (categoriesData === null) return
 
-    const action = (() => {
-        if (categoriesData !== null) {
-        const categories = categoriesData?.map((article) => article.categories?.map((category) => category.name));
+        console.log(categoriesData)
+        const categories = await categoriesData?.map((article) => article.categories?.map((category) => category.name));
 
-        const categoryMap = Object.values(categories)
+        const categoryMap = await Object.values(categories)
             .reduce((concatedArr, item) => concatedArr.concat(Object.entries(item)), [])
             .reduce((result, [category, values]) => {
             result[category] = result[category] || [];
@@ -50,23 +50,26 @@ const Navbar = ({user}) => {
 
 
 
-    let uniqueArray = [];
+        let uniqueArray = [];
 
-    for (let i = 0; i < categoryMap[0].length; i++) {
-        if (!uniqueArray.includes(categoryMap[0][i])) {
-            uniqueArray.push(categoryMap[0][i]);
-        }
-    };
+        for (let i = 0; i < categoryMap[0].length; i++) {
+            if (!uniqueArray.includes(categoryMap[0][i])) {
+                uniqueArray.push(categoryMap[0][i]);
+            }
 
-    
-    return (uniqueArray)
-    }})
+            console.log(uniqueArray);
+        };
+        
+        setCategories(uniqueArray)
+
+    })
 
     useEffect (() => {
-        action();
-    }, [categoriesData]);
 
-    console.log(action())
+        action();
+
+    }, []);
+
 
     
   
@@ -75,9 +78,33 @@ const Navbar = ({user}) => {
         <nav role="navigation" id="access">
             <ul id="menu">
                 {
-                    links.map((element) => <li className={element.id === active ? "active" + " " + element.label : element.label} onClick={() => setActive(element.id)} key={element.id}><Link to={element.path}>{element.label}</Link></li>)
+                    links.map((element) => 
+                    
+                    <li style={{ position: 'relative'}} className={element.id === active ? "active" : ""} onClick={() => setActive(element.id)} key={element.id}>
+                        
+                        {
+                            element.label === 'Categories' ? 
+                                <Fragment>
+                                    <span onClick={() => setOpenCategories(!openCategories)}>
+                                        {element.label}
+                                    </span>
+    
+                                    
+                                        {
+                                            openCategories && <ul id='nav-dropdown'>{categories.map((element) => <li key={element}><Link to={'/' + user.name + '/categories/' + element}>{element}</Link></li>)}</ul>
+                                        }
+                                </Fragment>
+                            :
+                                <Link to={element.path}>{element.label}</Link>
+                        }
+                        
+                        
+                    </li>)
                 }
             </ul>
+            
+            
+            
         </nav>
     )
 }
