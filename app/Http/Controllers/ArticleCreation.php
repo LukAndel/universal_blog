@@ -33,7 +33,7 @@ class ArticleCreation extends Controller
         $article = new Article;
 
         $user = Auth::user();
-        dd($request->input("date"));
+        // dd($request->input("date"));
         $article->user_id = $user->id;
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
@@ -41,7 +41,7 @@ class ArticleCreation extends Controller
 
         $article->save();
 
-       
+
 
         foreach ($request->categories as $key => $name) {
 
@@ -83,10 +83,10 @@ class ArticleCreation extends Controller
             // $arrSearch = array_search($category->name, $request->categories);
 
             // dd(array_search($category->name, $request->categories));
-
+            // dd($request->categories);
             if (array_search($category->name, $request->categories) === false) {
                 $article->categories()->detach($category->id);
-                $onlyConnection = count($category->articles) <= 1;
+                $onlyConnection = (count($category->articles) <= 1);
                 if ($onlyConnection) {
                     $category->delete();
                 };

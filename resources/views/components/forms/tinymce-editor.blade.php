@@ -39,7 +39,7 @@
 
     
 <script defer type="text/javascript">
-    let i = 0;
+    let i = 100;
     $("#dynamic-add").click(function () {
         ++i;
         $("#options").append('<span><input type="text" name="categories[' + i +
