@@ -9,7 +9,7 @@
     <div class="container">
       
       <label>Date:</label>
-      <input class="date form-control" type="text" style="width: 200px; margin-left: 40%" value={{ $article ? $article->date : '' }}>
+      <input class="date form-control" type="text" style="width: 200px; margin-left: 40%" name="date" value={{ $article ? $article->date : '' }}>
     </div>
       <script type="text/javascript">
         $('.date').datepicker({  

@@ -33,13 +33,15 @@ class ArticleCreation extends Controller
         $article = new Article;
 
         $user = Auth::user();
-
+        dd($request->input("date"));
         $article->user_id = $user->id;
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
         $article->date = $request->input('date');
 
         $article->save();
+
+       
 
         foreach ($request->categories as $key => $name) {
 
@@ -58,7 +60,7 @@ class ArticleCreation extends Controller
 
 
 
-        return redirect()->route('article-show', [$user->name, $article->id]);
+        return redirect()->route('article-show', [$article->id]);
     }
 
     public function edit(Request $request, $id)
@@ -113,7 +115,7 @@ class ArticleCreation extends Controller
 
 
 
-        return redirect()->route('article-show', [$user->name, $article->id]);
+        return redirect()->route('article-show', [$article->id]);
     }
 
     public function display($id)
