@@ -1,43 +1,20 @@
 {
-<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=ff53e6d08b72984e0d14ba369d4e4309",
     "/js/page.js": "/js/page.js?id=e38b4531de42e16dcef3b6862b7540fe",
-    "/js/blog.js": "/js/blog.js?id=086585eb926ee62f0794fcb280f1031d",
-=======
-    "/js/app.js": "/js/app.js?id=1b236243d9af961a18bf834a180ef100",
-    "/js/page.js": "/js/page.js?id=f10edd4738c2cddf43190dda6d64b23d",
-<<<<<<< HEAD
-    "/js/blog.js": "/js/blog.js?id=7626f2a886b201e39dd0e3e944eea86d",
->>>>>>> c84b54a21cb7cb21556a01c4e04b7b400fd2d58b
+    "/js/blog.js": "/js/blog.js?id=3005302c4e28ebb51b8c268e33e5f2b6",
     "/js/welcome.js": "/js/welcome.js?id=c58e3a7326f0679ee7d514b52fc361a5",
     "/js/Navbar.js": "/js/Navbar.js?id=5bf5a2f9af2b8156904280d545a93720",
-    "/css/admin.css": "/css/admin.css?id=62469a93c45c3b573cd816552ad15516",
-    "/css/blog-oskar.css": "/css/blog-oskar.css?id=68b329da9893e34099c7d8ad5cb9c940",
-    "/css/blog-jiri.css": "/css/blog-jiri.css?id=68b329da9893e34099c7d8ad5cb9c940",
-    "/css/blog-lukas.css": "/css/blog-lukas.css?id=f236e9b358663cabad22fe80d1f53e02",
-=======
-    "/js/blog.js": "/js/blog.js?id=6d82b38b4a0d580a0e1e8e011e7e8ebe",
-    "/js/welcome.js": "/js/welcome.js?id=c58e3a7326f0679ee7d514b52fc361a5",
-    "/js/Navbar.js": "/js/Navbar.js?id=a9e003f5358d962b2f6b94f9c829a5d3",
     "/css/admin.css": "/css/admin.css?id=348442c1f345a4fe1f279ee4bb5f1426",
     "/css/blog-oskar.css": "/css/blog-oskar.css?id=68b329da9893e34099c7d8ad5cb9c940",
     "/css/blog-jiri.css": "/css/blog-jiri.css?id=68b329da9893e34099c7d8ad5cb9c940",
-<<<<<<< HEAD
     "/css/basic.css": "/css/basic.css?id=1179aafb990c8fb258484475f0fc2dd9",
     "/css/app.css": "/css/app.css?id=7ab96b1aa5abb25362cb3811566cec32",
-=======
-    "/css/blog-lukas.css": "/css/blog-lukas.css?id=cd0db88cd838b2811cf4fc74ab0ea895",
->>>>>>> 88924b1d8fea8e5d6e5447a84808072355b53a63
-    "/css/basic.css": "/css/basic.css?id=1179aafb990c8fb258484475f0fc2dd9",
-    "/css/app.css": "/css/app.css?id=0e91561487caada7f69c680cc306c18d",
->>>>>>> c84b54a21cb7cb21556a01c4e04b7b400fd2d58b
     "/css/datepicker/cdnjs2.css": "/css/datepicker/cdnjs2.css?id=166f2fe567f011063db8aa44b7efcbd3",
     "/css/datepicker/cdnjs.css": "/css/datepicker/cdnjs.css?id=5ce4caed82d75ae6a118a96bc70229d9",
     "/css/welcome.css": "/css/welcome.css?id=df4eddfdeeca69569186b99c0f2e30d6",
     "/css/navigation.css": "/css/navigation.css?id=69c43b33dc093ddd0d519b98034788c0",
-    "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md?id=2474691c6c3a3da53c43d08c5cd4798d",
-    "/js/tinymce/README.md": "/js/tinymce/README.md?id=fb7bcf0f72726e09bfaaa17e8d8da1c3",
     "/js/tinymce/bower.json": "/js/tinymce/bower.json?id=505ad2d6409a1575617ac1b26716ace8",
+    "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md?id=2474691c6c3a3da53c43d08c5cd4798d",
     "/js/tinymce/composer.json": "/js/tinymce/composer.json?id=cfbaa679fb127737e0437209c867d96f",
     "/js/tinymce/icons/default/icons.js": "/js/tinymce/icons/default/icons.js?id=673e648ec38c55a05b29586bcd696d7e",
     "/js/tinymce/icons/default/icons.min.js": "/js/tinymce/icons/default/icons.min.js?id=18b4418f76e3ad36ae669608a944ef07",
@@ -138,6 +115,7 @@
     "/js/tinymce/plugins/wordcount/index.js": "/js/tinymce/plugins/wordcount/index.js?id=8702637f4301b2c60b0d036a74a57952",
     "/js/tinymce/plugins/wordcount/plugin.js": "/js/tinymce/plugins/wordcount/plugin.js?id=1f32a0ab250e90548cdda82f2fed8767",
     "/js/tinymce/plugins/wordcount/plugin.min.js": "/js/tinymce/plugins/wordcount/plugin.min.js?id=fe8c2b6e9e432cc8fb3b80d74d4f6a3c",
+    "/js/tinymce/README.md": "/js/tinymce/README.md?id=fb7bcf0f72726e09bfaaa17e8d8da1c3",
     "/js/tinymce/skins/content/dark/content.css": "/js/tinymce/skins/content/dark/content.css?id=c18a991f9ef0b423adb8b1b132afea6c",
     "/js/tinymce/skins/content/dark/content.min.css": "/js/tinymce/skins/content/dark/content.min.css?id=8be098c8a09616b6f37f8ed7c963ebca",
     "/js/tinymce/skins/content/default/content.css": "/js/tinymce/skins/content/default/content.css?id=fdd392b36001c3e0f925e00869fab674",
@@ -188,5 +166,5 @@
     "/js/tinymce/tinymce.d.ts": "/js/tinymce/tinymce.d.ts?id=3d33fa4536930510ec54150f7ec6cb78",
     "/js/tinymce/tinymce.js": "/js/tinymce/tinymce.js?id=5ba4b604940b79be0c64edc0ad0f0a95",
     "/js/tinymce/tinymce.min.js": "/js/tinymce/tinymce.min.js?id=8c14e90c6082ec7fc0b8fdf7e220b18c",
-    "/css/blog-lukas.css": "/css/blog-lukas.css?id=2608969daf0e74d051f54b4e18100a95"
+    "/css/blog-lukas.css": "/css/blog-lukas.css?id=210358723ba99118ad3ab6c43baa63d0"
 }

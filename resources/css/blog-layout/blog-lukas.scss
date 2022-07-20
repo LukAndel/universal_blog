@@ -1,13 +1,8 @@
 $primary-color: rgb(6, 40, 61);
 $secondary-color: #689384;
 $tertiary-color: #5a4741;
-<<<<<<< HEAD
 $quaternary-color: #fff;
-$ff: 'Indie Flower', cursive;
-=======
-$quaternary-color:#fff;
 $ff: 'Edu NSW ACT Foundation', cursive;
->>>>>>> c84b54a21cb7cb21556a01c4e04b7b400fd2d58b
 
 
 body {
@@ -18,33 +13,18 @@ body {
 }
 
 
-<<<<<<< HEAD
 .main {
   color: $quaternary-color;
   margin-left: 20%;
   margin-right: 20%;
   margin-top: -10px;
   border: solid $tertiary-color 0.5px;
-  background-color: #5a4741;
+  background-color: $tertiary-color;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-=======
-.main{
-    color:$quaternary-color;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: -10px;
-    border: solid $tertiary-color 0.5px;
-    background-color: $tertiary-color;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
->>>>>>> c84b54a21cb7cb21556a01c4e04b7b400fd2d58b
 }
 
 .articles {
