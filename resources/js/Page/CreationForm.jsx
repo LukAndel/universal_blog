@@ -4,6 +4,7 @@ import Preview from './Preview';
 
 const CreationForm = () => {
     const [defaultSections, setDefaultSections] = useState([])
+    const [defaultColorsets, setDefaultColorsets] = useState([])
     const [formValues, setFormValues] = useState({
         colorset: '',
         pageTitle: '',
@@ -23,9 +24,16 @@ const CreationForm = () => {
         setDefaultSections(response.data)
     }
 
+    const fetchColorsets = async () => {
+        const response = await axios.get("/api/page-creation/colorsets");
+        // console.log(response.data)
+        setDefaultColorsets(response.data)
+    }
+
     useEffect(() => {
         fetchData();
         fetchSections();
+        fetchColorsets();
     }, []);
 
 
@@ -117,7 +125,16 @@ const CreationForm = () => {
                 <br/>
                 <div className='colorset--selection'>
                     <label>Colorset</label>
-                    <br/>
+                    {defaultColorsets.map((colorset, i)=>(
+                        <span className='colorsetbox' key={i}><input type="radio" name="colorset" value={i+1} checked={formValues.colorset == i+1} onChange={(e)=> handleChange(e)} />
+                        <div className='colorpickbox' style={{backgroundColor:colorset.color_1}}></div>
+                        <div className='colorpickbox' style={{backgroundColor:colorset.color_2}}></div>
+                        <div className='colorpickbox' style={{backgroundColor:colorset.color_3}}></div>
+                        <div className='colorpickbox' style={{backgroundColor:colorset.color_4}}></div>
+                        </span>
+                    ))}
+
+                    {/* <br/>
                     <label>A</label>
                     <input type="radio" name="colorset" value="1" checked={formValues.colorset == "1"} onChange={(e)=> handleChange(e)} />
                     <br/>
@@ -125,7 +142,7 @@ const CreationForm = () => {
                     <input type="radio" name="colorset" value="2" checked={formValues.colorset == "2"} onChange={(e)=> handleChange(e)} />
                     <br/>
                     <label>C</label>
-                    <input type="radio" name="colorset" value="3" checked={formValues.colorset == "3"} onChange={(e)=> handleChange(e)} />
+                    <input type="radio" name="colorset" value="3" checked={formValues.colorset == "3"} onChange={(e)=> handleChange(e)} /> */}
                 </div>
                 <br/>
                 <div className='sections--selection'>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Styleset;
 use App\Models\User;
 use App\Models\Section;
+use App\Models\Colorset;
 use Auth;
 use App\Http\Resources\PageResource;
 
@@ -26,5 +27,10 @@ class PageController extends Controller
     {
         $sections = Section::select('id', 'name')->get();
         return $sections;
+    }
+    public function getColorsets()
+    {
+        $colorsets = Colorset::get();
+        return $colorsets;
     }
 }
