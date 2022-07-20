@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Article from "./Article";
+import Categories from "./Categories";
 
 const App = () => {
     const [user, setUser] = useState("");
@@ -36,10 +37,20 @@ const App = () => {
                             }
                         />
 
+                        <div className="articles">
+                            <Articles user={user} />
+                        </div>
+
                         <Route
                             exact
                             path={"/" + user.name + "/:article_id"}
                             element={<Article />}
+                        />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/categories"}
+                            element={<Categories />}
                         />
                     </Routes>
                     <footer>

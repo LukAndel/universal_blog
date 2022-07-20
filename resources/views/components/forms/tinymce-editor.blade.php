@@ -1,8 +1,9 @@
+
 @if (!$isNew)
-<form action="/article-creation/{{$article->id}}" method="post">
+<form id="form" action="/article-creation/{{$article->id}}" method="post">
   @method('put')
 @else
-<form action="{{ action('ArticleCreation@store')}}" method="post">
+<form id="form" action="{{ action('ArticleCreation@store')}}" method="post">
 @endif
     @csrf
     <div id="options" class="options">
@@ -19,7 +20,7 @@
     <label>Category*</label><br>
       <button style="margin: 5px" type="button" name="add" id="dynamic-add" class="btn">Add Category</button><br>
 
-      <span><input type="text" name="categories[0]" value={{ !empty($categories) ? $categories[0]->name : '' }}><button type="button" class="btn cat" id="remove-input">Delete</button></span>
+      <span><input type="text" id="categories[0]" name="categories[0]" value={{ !empty($categories) ? $categories[0]->name : '' }}><button type="button" class="btn cat" id="remove-input">Delete</button></span>
 
     
     
@@ -27,8 +28,8 @@
     @if (!empty($categories))
         
            @for ($i=1; $i < count($categories); $i++)
-           
-           <span><input type="text" name="categories[{{$i}}]" value="{{$categories[$i]->name}}"/><button type="button" class="btn cat" id="remove-input">Delete</button></span>
+     s      
+           <span><input type="text" id="categories[{{$i}}]" name="categories[{{$i}}]" value="{{$categories[$i]->name}}"/><button type="button" class="btn cat" id="remove-input">Delete</button></span>
            
            @endfor
         
@@ -62,6 +63,16 @@
       <button class="btn">submit</button>
 
   </form>
+
+  @if (count($errors) > 0)
+    <div class="w-4/8 m-auto text-center">
+      @foreach ($errors->all() as $error)
+        <li class="text-red-500 list-none">
+          {{ $error }}
+        </li>
+      @endforeach
+    </div>
+  @endif
 
 
   @if (!$isNew)

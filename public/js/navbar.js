@@ -6470,31 +6470,33 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Navbar = function Navbar() {
+var Navbar = function Navbar(_ref) {
+  var user = _ref.user;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
       active = _useState2[0],
-      setAcive = _useState2[1];
+      setActive = _useState2[1];
 
   var links = [{
     label: 'Home',
-    path: '/blog/',
+    path: '/' + user.name,
     id: 0
   }, {
     label: 'Categories',
-    path: '/blog/categories',
+    path: '/' + user.name + '/categories',
     id: 1
   }, {
     label: 'Services',
-    path: '/blog/services',
+    path: '/' + user.name + '/services',
     id: 2
   }, {
     label: 'Portfolio',
-    path: '/blog/services',
+    path: '/' + user.name + '/portfolio',
     id: 3
   }, {
     label: 'Contact',
-    path: '/blog/contact',
+    path: '/' + user.name + '/contact',
     id: 4
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("nav", {
@@ -6506,7 +6508,7 @@ var Navbar = function Navbar() {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
           className: element.id === active ? "active" : "",
           onClick: function onClick() {
-            return setAcive(element.id);
+            return setActive(element.id);
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
             to: element.path,

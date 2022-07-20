@@ -30,6 +30,13 @@ class ArticleCreation extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'text' => 'required',
+            'title' => 'required',
+            'categories[0]' => 'required'
+        ]);
+
+
         $article = new Article;
 
         $user = Auth::user();
@@ -38,7 +45,7 @@ class ArticleCreation extends Controller
         $article->text = $request->input('textarea');
         $article->title = $request->input('title');
         $article->date = $request->input('date');
-
+        
         $article->save();
 
 
