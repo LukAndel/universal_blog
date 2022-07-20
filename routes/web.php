@@ -33,6 +33,6 @@ Route::post('upload', 'UploadController@store');
 
 
 
-Route::get('/{name}/{id}', 'ArticleCreation@display')->name('article-show');
+Route::get('article/{id}', 'ArticleCreation@display')->name('article-show');
 
-Route::get('/{name}', 'BlogController@display')->name('blog');
+Route::get('/{name}/{path?}', 'BlogController@display')->name('blog')->where('path', '.*');

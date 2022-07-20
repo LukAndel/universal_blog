@@ -1,12 +1,12 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Articles = () => {
+const Articles = ({ user }) => {
     const [articles, setArticles] = useState([]);
 
     const fetchArticles = async () => {
         const response = await axios.get("api/blog/articles");
-        console.log(response.data);
         setArticles(response.data);
     };
 
@@ -20,10 +20,10 @@ const Articles = () => {
     return (
 <>
             {articles.map((article) => (
-                <div className="article" key={article.id}>
+                <Link to={"/" + user.name + '/' + article.id } ><div className="article" key={article.id}>
                     <h2 className="article__title">{article.title}</h2>
                     <p className="article__text">{article.text}</p>
-                </div>
+                </div></Link>
             ))}
 </>
     );

@@ -26,4 +26,6 @@ Route::get(
 );
 
 Route::get('blog/articles', 'BlogController@getArticles');
+Route::get('blog/article/{id}', 'BlogController@getArticle');
 Route::get('blog/user', 'BlogController@getUser');
+

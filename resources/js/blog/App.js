@@ -1,9 +1,10 @@
 
 import Articles from "./Articles";
 import Navbar from "../Page/Lukas/Navbar";
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import Article from "./Article";
 
 const App = () => {
 
@@ -11,13 +12,14 @@ const App = () => {
     const [user, setUser] = useState("");
 
     const fetchUser = async () => {
-        const response = await axios.get("api/blog/user");
+        const response = await axios.get("/api/blog/user");
         setUser(response.data);
     };
 
     useEffect (() => {
         fetchUser();
     }, []);
+
 
     return (
 
@@ -28,16 +30,19 @@ const App = () => {
             </header>
             
             <div className="main">
-
                 <Routes>
 
-                    <Route exact path={user.name} element={
+                    <Route exact path={'/'+user.name} element={
 
                         <div className="articles">
-                        <Articles />          
+                        <Articles user={user} />          
                         </div>
                     } />
 
+                        <Route exact path={"/" + user.name + '/:article_id'} element={
+
+                            <Article />
+                        } />
 
 
                 </Routes>

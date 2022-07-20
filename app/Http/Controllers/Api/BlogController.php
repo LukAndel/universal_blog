@@ -25,4 +25,12 @@ class BlogController extends Controller
 
         return $user;
     }
+
+    public function getArticle($id)
+    {
+        $userId = Auth::id();
+        $article = Article::where([['user_id', $userId],['id', $id]])->first();
+
+        return $article;
+    }
 }
