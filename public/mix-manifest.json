@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=ff53e6d08b72984e0d14ba369d4e4309",
     "/js/page.js": "/js/page.js?id=f10edd4738c2cddf43190dda6d64b23d",
     "/js/blog.js": "/js/blog.js?id=35256029868fd605dac08f5f15faa0d8",
+=======
+    "/js/app.js": "/js/app.js?id=1b236243d9af961a18bf834a180ef100",
+    "/js/page.js": "/js/page.js?id=177c6ab33821d56f6c5ee462e1bef997",
+    "/js/blog.js": "/js/blog.js?id=256edeae8392411832464dabafd14b78",
+>>>>>>> 9cce5df990c5db251e3f044f6dbe73032d2e4798
     "/js/welcome.js": "/js/welcome.js?id=c58e3a7326f0679ee7d514b52fc361a5",
     "/js/Navbar.js": "/js/Navbar.js?id=c8665ea2f386ffcd849fd316319d0b0a",
     "/css/admin.css": "/css/admin.css?id=348442c1f345a4fe1f279ee4bb5f1426",

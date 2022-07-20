@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/navigation.css">
-<script src="js/nav.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <input type="checkbox" id="nav-control" class="nav-control" >
 <label for="nav-control" class="toggle-button">
