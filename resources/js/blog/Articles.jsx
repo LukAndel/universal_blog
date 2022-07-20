@@ -1,20 +1,31 @@
 import {useEffect, useState} from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Articles = () => {
-    // const [articles, setArticles] = useState("");
+const Articles = ({ user }) => {
+    const [articles, setArticles] = useState([]);
 
+    const fetchArticles = async () => {
+        const response = await axios.get("api/blog/articles");
+        setArticles(response.data);
+    };
 
+    useEffect (() => {
+        fetchArticles();
+    }, []);
 
 
 
 
     return (
-        <div className="articles">
-                <div className="article">
-                    <h2 className="article__title">Německá Alpská cesta - cesta plná horských jezer a krásných výhledů</h2>
-                    <p className="article__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet nobis nesciunt atque, accusamus eligendi necessitatibus? Voluptatibus id laudantium ad aliquid rem, error itaque sit architecto, dolorem, quidem enim perspiciatis deleniti!</p>
-                </div>
-        </div>
+<>
+            {articles.map((article) => (
+                <Link to={"/" + user.name + '/' + article.id } ><div className="article" key={article.id}>
+                    <h2 className="article__title">{article.title}</h2>
+                    <p className="article__text">{article.text}</p>
+                </div></Link>
+            ))}
+</>
     );
 }
 

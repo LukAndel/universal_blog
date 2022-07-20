@@ -985,8 +985,7 @@ html, body {
   clear: both;
 }
 
-[class^=icon-]:before,
-[class*=" icon-"]:before {
+.nav-link:before {
   margin-right: 0.5em;
   opacity: 0.2;
 }
@@ -1030,7 +1029,7 @@ html, body {
   padding: 0 0.3em;
 }
 
-#access #menu li.active a a, #access #menu li.active a a:hover, #access #menu li.active:nth-child(odd) a, #access #menu li.active:nth-child(odd) a:hover {
+#access #menu li.active a a, #access #menu li.active a a:hover, #access #menu li.active a, #access #menu li.active a:hover {
   background-color: #5a4741;
   color: #fff;
   cursor: default;
@@ -1106,8 +1105,7 @@ html, body {
   }
 }
 @media only screen and (min-width: 769px) {
-  [class^=icon-]:before,
-[class*=" icon-"]:before {
+  .nav-link:before {
     display: block;
     text-align: center;
     margin-right: 0;

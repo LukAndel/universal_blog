@@ -116,14 +116,14 @@ class ArticleCreation extends Controller
         return redirect()->route('article-show', [$user->name, $article->id]);
     }
 
-    public function display($name, $id)
+    public function display($id)
     {
-        $user = User::where('name', $name)->first();
+     
         $article = Article::where('id', $id)->first();
         $categories = $article->categories()->get();
+        
 
-
-        return view('article.article-view', compact('user', 'article', 'categories'));
+        return view('article.article-view', compact('article', 'categories'));
     }
 
     public function delete($id)
@@ -134,6 +134,7 @@ class ArticleCreation extends Controller
 
         $isNew = true;
 
+        
         return redirect()->route('article-creation', ['isNew' => $isNew]);
     }
 }

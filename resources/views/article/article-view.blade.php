@@ -5,7 +5,9 @@
 
     <h1>{!!$article->title!!}</h1>
     <br>
+    
     <div class="categories">
+        <p>{!!$article->date!!}</p>
     @foreach ($categories as $item)
         {{$item['name']}} ||
     @endforeach
