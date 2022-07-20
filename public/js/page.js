@@ -2320,27 +2320,14 @@ var CreationForm = function CreationForm() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchData();
     fetchSections();
-  }, []);
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      customInput = _useState6[0],
-      setCustomInput = _useState6[1];
-
-  var handleCustom = function handleCustom(e) {
-    setCustomInput(e.target.value);
-  };
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      customSections = _useState8[0],
-      setCustomSections = _useState8[1];
-
-  var addSection = function addSection() {
-    setCustomSections(function (arr) {
-      return [].concat(_toConsumableArray(arr), [customInput]);
-    });
-  };
+  }, []); // const [customInput, setCustomInput] = useState("");
+  // const handleCustom = (e) => {
+  //     setCustomInput(e.target.value)
+  // }
+  // const [customSections, setCustomSections] = useState([]);
+  // const addSection = () => {
+  //    setCustomSections(arr=>[...arr, customInput])
+  // }
 
   var handleCheck = function handleCheck(e) {
     // const dataString = e.target.value;
@@ -2374,10 +2361,10 @@ var CreationForm = function CreationForm() {
     });
   };
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState10 = _slicedToArray(_useState9, 2),
-      showFB = _useState10[0],
-      setShowFB = _useState10[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showFB = _useState6[0],
+      setShowFB = _useState6[1];
 
   var showFBInput = function showFBInput() {
     setShowFB(!showFB);
@@ -2404,14 +2391,14 @@ var CreationForm = function CreationForm() {
 
             case 3:
               response = _context3.sent;
-              response_data = response.data; // console.log(response_data);
-              // }
+              response_data = response.data;
+              console.log(response_data); // }
               // catch(error) {
               // console.log(error); // information about the error
               // console.log(error.response); // the response object from the failed request
               // }
 
-            case 5:
+            case 6:
             case "end":
               return _context3.stop();
           }
@@ -2552,6 +2539,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Preview = function Preview(data) {
+  var _sections$;
+
   var _data$data = data.data,
       pageTitle = _data$data.pageTitle,
       colorset = _data$data.colorset,
@@ -2578,7 +2567,7 @@ var Preview = function Preview(data) {
       className: "preview__body",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
         className: "preview__h2",
-        children: sections && sections[0['name']]
+        children: sections && ((_sections$ = sections[0]) === null || _sections$ === void 0 ? void 0 : _sections$.name)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "preview__h3",
         children: "Article header"

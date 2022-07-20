@@ -30,14 +30,14 @@ const CreationForm = () => {
 
 
 
-    const [customInput, setCustomInput] = useState("");
-    const handleCustom = (e) => {
-        setCustomInput(e.target.value)
-    }
-    const [customSections, setCustomSections] = useState([]);
-    const addSection = () => {
-       setCustomSections(arr=>[...arr, customInput])
-    }
+    // const [customInput, setCustomInput] = useState("");
+    // const handleCustom = (e) => {
+    //     setCustomInput(e.target.value)
+    // }
+    // const [customSections, setCustomSections] = useState([]);
+    // const addSection = () => {
+    //    setCustomSections(arr=>[...arr, customInput])
+    // }
 
     
     const handleCheck = (e) => {
@@ -97,7 +97,7 @@ const CreationForm = () => {
         // {
         const response = await axios.post("/page-creation", formValues);
         const response_data = response.data;
-        // console.log(response_data);
+        console.log(response_data);
         // }
         // catch(error) {
         // console.log(error); // information about the error

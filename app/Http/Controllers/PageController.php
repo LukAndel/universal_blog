@@ -33,17 +33,19 @@ class PageController extends Controller
                 $user->sections()->detach($section->id);
             }
         }
-        foreach ($request->sections as $name) {
-            if (Section::where('name', $name['name'])->first()) {
-                if (!($user->sections()->where('name', $name['name'])->exists())) {
-                    $section = Section::where('name', $name['name'])->first();
+        foreach ($request->sections as $reqSection) {
+
+            $section = Section::where('name', $reqSection['name'])->first();
+            if ($section) {
+                $isMatch = $user->sections()->where('name', $section->name)->first();
+                if (!$isMatch) {
                     $user->sections()->attach($section->id);
                 }
             }
-
-            // $data = $request->all();
-
-            return $request->all();
         }
+
+        // $data = $request->all();
+
+        return back()->with('message', 'Operation Successful !');
     }
 }
