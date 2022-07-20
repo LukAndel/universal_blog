@@ -26,7 +26,7 @@ const App = () => {
         <>
         <Router>
             <header>
-                <Navbar />
+                <Navbar user={user}/>
             </header>
             
             <div className="main">
