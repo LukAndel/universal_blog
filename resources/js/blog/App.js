@@ -37,10 +37,6 @@ const App = () => {
                             }
                         />
 
-                        <div className="articles">
-                            <Articles user={user} />
-                        </div>
-
                         <Route
                             exact
                             path={"/" + user.name + "/:article_id"}
