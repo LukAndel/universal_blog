@@ -1,25 +1,27 @@
-$primary-color: rgb(6, 40, 61);
-$secondary-color: #689384;
-$tertiary-color: #5a4741;
-$quaternary-color: #fff;
-$ff: 'Edu NSW ACT Foundation', cursive;
-
+#root {
+  $primary-color: rgb(6, 40, 61);
+  $secondary-color: #689384;
+  $tertiary-color: #5a4741;
+  $quaternary-color: #fff;
+  $ff: 'Edu NSW ACT Foundation',
+  cursive;
+}
 
 body {
-  background-color: $secondary-color;
-  color: $quaternary-color;
-  font-family: $ff;
+  background-color: var(--secondary-color);
+  color: var(--quaternary-color);
+  font-family: var(--ff);
 
 }
 
 
 .main {
-  color: $quaternary-color;
+  color: var(--quaternary-color);
   margin-left: 20%;
   margin-right: 20%;
   margin-top: -10px;
-  border: solid $tertiary-color 0.5px;
-  background-color: $tertiary-color;
+  border: solid var(--tertiary-color) 0.5px;
+  background-color: var(--tertiary-color);
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -67,7 +69,7 @@ body {
 .article:hover {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
-  box-shadow: 10px 10px 10px $secondary-color;
+  box-shadow: 10px 10px 10px var(--secondary-color);
 }
 
 
@@ -109,7 +111,7 @@ body {
 
 
 @font-face {
-  font-family: $ff;
+  font-family: var(--ff);
   src: url('https://github.com/FortAwesome/Font-Awesome/raw/master/font/fontawesome-webfont.eot');
   src: url('https://github.com/FortAwesome/Font-Awesome/raw/master/font/fontawesome-webfont.eot?#iefix') format('eot'), url('https://github.com/FortAwesome/Font-Awesome/raw/master/font/fontawesome-webfont.woff') format('woff'), url('https://github.com/FortAwesome/Font-Awesome/raw/master/font/fontawesome-webfont.ttf') format('truetype'), url('https://github.com/FortAwesome/Font-Awesome/raw/master/font/fontawesome-webfont.svg#FontAwesomeRegular') format('svg');
   font-weight: normal;
@@ -119,7 +121,7 @@ body {
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: $ff;
+  font-family: var(--ff);
 }
 
 .icon-glass:before {
@@ -994,9 +996,9 @@ body {
   margin: 0 0 0 -6.8em;
   width: 13em;
   padding: 4em 0;
-  color: $quaternary-color;
+  color: var(--quaternary-color);
   text-align: center;
-  border: 0.3em solid $quaternary-color;
+  border: 0.3em solid var(--quaternary-color);
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -1037,9 +1039,9 @@ body {
 #access a,
 #access #menu a,
 #menu li a {
-  background-color: $secondary-color;
+  background-color: var(--secondary-color);
   display: block;
-  color: $quaternary-color;
+  color: var(--quaternary-color);
   text-decoration: none;
   padding: 0.5em;
   -webkit-transition: -webkit-transform 500ms linear, box-shadow 500ms ease-in, background-color 250ms ease-in;
@@ -1060,8 +1062,8 @@ body {
 #access a.skip-link.focus,
 #access #menu a.skip-link.focus,
 #menu li a:hover {
-  background-color: $quaternary-color;
-  color: $tertiary-color;
+  background-color: var(--quaternary-color);
+  color: var(--tertiary-color);
 }
 
 #access {
@@ -1092,8 +1094,8 @@ body {
 #access #menu li.active a a:hover,
 #access #menu li.active a,
 #access #menu li.active a:hover {
-  background-color: $tertiary-color;
-  color: $quaternary-color;
+  background-color: var(--tertiary-color);
+  color: var(--quaternary-color);
   cursor: default;
 }
 
@@ -1168,7 +1170,7 @@ body {
     transform: rotateX(-90deg) scale(0.97);
     position: relative;
     overflow: hidden;
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
   }
 
   #menu li:nth-child(odd) a {
@@ -1188,12 +1190,12 @@ body {
   }
 
   #menu li a:hover:before {
-    color: $secondary-color;
+    color: var(--secondary-color);
   }
 
   #menu li.active a:before,
   #menu li.active a:hover:before {
-    color: $quaternary-color;
+    color: var(--quaternary-color);
   }
 
   #menu:target,
@@ -1233,7 +1235,7 @@ body {
 
   #menu {
     width: 100%;
-    background: $secondary-color;
+    background: var(--secondary-color);
     text-align: center;
   }
 

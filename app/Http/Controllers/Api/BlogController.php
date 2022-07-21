@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function getUser()
     {
         $id = Auth::id();
-        $user = User::where('id',$id)->first();
+        $user = User::where('id', $id)->with('styleset.colorset')->first();
 
         return $user;
     }
@@ -30,7 +30,7 @@ class BlogController extends Controller
     public function getArticle($id)
     {
         $userId = Auth::id();
-        $article = Article::where([['user_id', $userId],['id', $id]])->first();
+        $article = Article::where([['user_id', $userId], ['id', $id]])->first();
         $categories = $article->categories;
 
         return $article;
@@ -44,4 +44,9 @@ class BlogController extends Controller
 
         return $categories;
     }
+    // public function getStyleset()
+    // {
+    //     $id = Auth::id();
+    //     $styleset = Styleset::where('user_id')
+    // }
 }
