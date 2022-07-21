@@ -8857,56 +8857,65 @@ var Navbar = function Navbar(_ref) {
       openCategories = _useState6[0],
       setOpenCategories = _useState6[1];
 
-  var links = [{
-    label: 'Home',
-    path: '/' + user.name,
-    id: 0
-  }, {
-    label: 'Categories',
-    path: '/' + user.name + '/categories',
-    id: 1
-  }, {
-    label: 'Services',
-    path: '/' + user.name + '/services',
-    id: 2
-  }, {
-    label: 'Portfolio',
-    path: '/' + user.name + '/portfolio',
-    id: 3
-  }, {
-    label: 'Contact',
-    path: '/' + user.name + '/contact',
-    id: 4
-  }];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      sections = _useState8[0],
+      setSections = _useState8[1];
 
-  var action = /*#__PURE__*/function () {
+  var fetchSections = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var response, categoriesData, categories, categoryMap, uniqueArray, i;
+      var response;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/blog/categories");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/blog/sections");
 
             case 2:
               response = _context.sent;
-              _context.next = 5;
+              setSections(response.data);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function fetchSections() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var action = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var response, categoriesData, categories, categoryMap, uniqueArray, i;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/blog/categories");
+
+            case 2:
+              response = _context2.sent;
+              _context2.next = 5;
               return response.data;
 
             case 5:
-              categoriesData = _context.sent;
+              categoriesData = _context2.sent;
 
               if (!(categoriesData === null)) {
-                _context.next = 8;
+                _context2.next = 8;
                 break;
               }
 
-              return _context.abrupt("return");
+              return _context2.abrupt("return");
 
             case 8:
-              console.log(categoriesData);
-              _context.next = 11;
+              _context2.next = 10;
               return categoriesData === null || categoriesData === void 0 ? void 0 : categoriesData.map(function (article) {
                 var _article$categories;
 
@@ -8915,72 +8924,72 @@ var Navbar = function Navbar(_ref) {
                 });
               });
 
-            case 11:
-              categories = _context.sent;
-              _context.next = 14;
+            case 10:
+              categories = _context2.sent;
+              _context2.next = 13;
               return Object.values(categories).reduce(function (concatedArr, item) {
                 return concatedArr.concat(Object.entries(item));
-              }, []).reduce(function (result, _ref3) {
-                var _ref4 = _slicedToArray(_ref3, 2),
-                    category = _ref4[0],
-                    values = _ref4[1];
+              }, []).reduce(function (result, _ref4) {
+                var _ref5 = _slicedToArray(_ref4, 2),
+                    category = _ref5[0],
+                    values = _ref5[1];
 
                 result[category] = result[category] || [];
                 result[category] = result[category].concat(values);
                 return result;
               }, {});
 
-            case 14:
-              categoryMap = _context.sent;
+            case 13:
+              categoryMap = _context2.sent;
               uniqueArray = [];
 
               for (i = 0; i < categoryMap[0].length; i++) {
                 if (!uniqueArray.includes(categoryMap[0][i])) {
                   uniqueArray.push(categoryMap[0][i]);
                 }
-
-                console.log(uniqueArray);
               }
 
               ;
               setCategories(uniqueArray);
 
-            case 19:
+            case 18:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
     return function action() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchSections();
     action();
   }, []);
+  console.log(sections);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
     role: "navigation",
     id: "access",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
       id: "menu",
-      children: links.map(function (element) {
+      children: sections.map(function (section) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          style: {
-            position: 'relative'
-          },
-          className: element.id === active ? "active" : "",
+          className: section.id === active ? "active" : "",
           onClick: function onClick() {
-            return setActive(element.id);
+            return setActive(section.id);
           },
-          children: element.label === 'Categories' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+          children: section.name === 'Home' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            to: '/' + user.name,
+            children: section.name
+          }) : section.name === 'Categories' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
                 return setOpenCategories(!openCategories);
               },
-              children: element.label
+              children: section.name
             }), openCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
               id: "nav-dropdown",
               children: categories.map(function (element) {
@@ -8993,10 +9002,10 @@ var Navbar = function Navbar(_ref) {
               })
             })]
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-            to: element.path,
-            children: element.label
+            to: '/' + user.name + '/' + section.name,
+            children: section.name
           })
-        }, element.id);
+        }, section.id);
       })
     })
   });

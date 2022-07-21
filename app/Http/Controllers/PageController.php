@@ -21,6 +21,7 @@ class PageController extends Controller
     {
         $styleset = new Styleset;
         $styleset->colorset_id = $request->colorset;
+        $styleset->font_id = 1;
         $styleset->save();
 
         $user = Auth::user();
