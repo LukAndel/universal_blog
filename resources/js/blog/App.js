@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Article from "./Article";
 import Categories from "./Categories";
+import Portfolio from "./Portfolio";
+import Gallery from "./Gallery";
+import Calendar from "./Calendar";
+import About from "./About";
+import Contact from "./Contact";
 
 const App = () => {
     const [user, setUser] = useState("");
@@ -69,7 +74,38 @@ const App = () => {
                             path={"/" + user.name + "/categories"}
                             element={<Categories />}
                         />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/portfolio"}
+                            element={<Portfolio />}
+                        />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/gallery"}
+                            element={<Gallery />}
+                        />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/calendar"}
+                            element={<Calendar />}
+                        />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/about"}
+                            element={<About />}
+                        />
+
+                        <Route
+                            exact
+                            path={"/" + user.name + "/contact"}
+                            element={<Contact />}
+                        />
                     </Routes>
+
                     <footer>
                         <div className="footer"></div>
                     </footer>

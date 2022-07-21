@@ -10,24 +10,12 @@ const Navbar = ({ user }) => {
 
     const [openCategories, setOpenCategories] = useState(false)
 
-    const links = [
-        {
-            label: 'Home', path:'/' + user.name, id: 0
-        },
-        {
-            label: 'Categories', path: '/' + user.name + '/categories', id: 1
-        },
-        {
-            label: 'Services', path:'/' + user.name + '/services', id: 2
-        },
-        {
-            label: 'Portfolio', path:'/' + user.name + '/portfolio', id: 3
-        },
-        {
-            label: 'Contact', path:'/' + user.name + '/contact', id: 4
-        },
-    ]
+    const [sections, setSections] = useState([]);
 
+    const fetchSections = async () => {
+        const response = await axios.get(`/api/blog/sections`);
+        setSections(response.data);
+    };
 
     const action = (async() => {
 
@@ -37,7 +25,6 @@ const Navbar = ({ user }) => {
         
         if (categoriesData === null) return
 
-        console.log(categoriesData)
         const categories = await categoriesData?.map((article) => article.categories?.map((category) => category.name));
 
         const categoryMap = await Object.values(categories)
@@ -56,8 +43,6 @@ const Navbar = ({ user }) => {
             if (!uniqueArray.includes(categoryMap[0][i])) {
                 uniqueArray.push(categoryMap[0][i]);
             }
-
-            console.log(uniqueArray);
         };
         
         setCategories(uniqueArray)
@@ -65,28 +50,28 @@ const Navbar = ({ user }) => {
     })
 
     useEffect (() => {
-
+        fetchSections();
         action();
 
     }, []);
 
 
-    
+    console.log(sections)
   
 
     return (
         <nav role="navigation" id="access">
             <ul id="menu">
                 {
-                    links.map((element) => 
+                    sections.map((section) => 
                     
-                    <li style={{ position: 'relative'}} className={element.id === active ? "active" : ""} onClick={() => setActive(element.id)} key={element.id}>
+                    <li className={section.id === active ? "active" : ""} onClick={() => setActive(section.id)} key={section.id}>
                         
-                        {
-                            element.label === 'Categories' ? 
+                        {   section.name === 'Home' ? <Link to={'/' + user.name}>{section.name}</Link> :
+                            section.name === 'Categories' ? 
                                 <Fragment>
                                     <span onClick={() => setOpenCategories(!openCategories)}>
-                                        {element.label}
+                                        {section.name}
                                     </span>
     
                                     
@@ -95,7 +80,7 @@ const Navbar = ({ user }) => {
                                         }
                                 </Fragment>
                             :
-                                <Link to={element.path}>{element.label}</Link>
+                                <Link to={'/' + user.name + '/' + section.name}>{section.name}</Link>
                         }
                         
                         

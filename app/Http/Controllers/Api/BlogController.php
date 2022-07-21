@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Section;
 use Auth;
 
 class BlogController extends Controller
@@ -49,4 +50,13 @@ class BlogController extends Controller
     //     $id = Auth::id();
     //     $styleset = Styleset::where('user_id')
     // }
+
+    public function getSections()
+    {
+        $user = Auth::user();
+        $sections = $user->sections;
+
+        return $sections;
+    }
+
 }
