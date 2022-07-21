@@ -153,7 +153,7 @@ const CreationForm = () => {
                     <label>Font</label>
                     <br />
                     <select name="font" id='font' onChange={handleChange} value={formValues.font}>
-                    <option></option>
+                    <option selected hidden> - select a font - </option>
                     <option value="1">Edu NSW ACT</option>
                     <option value="2">Roboto Slab</option>
                     <option value="3">Kanit</option>
