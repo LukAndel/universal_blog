@@ -2970,7 +2970,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Layout = function Layout() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2979,7 +2978,7 @@ var Layout = function Layout() {
 
   var fetchUser = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var _response$data, _response$data$styles, _response$data2, _response$data2$style, _response$data3, _response$data3$style, _response$data4, _response$data4$style;
+      var _response$data, _response$data$styles, _response$data2, _response$data2$style, _response$data3, _response$data3$style, _response$data4, _response$data4$style, _response$data5, _response$data5$style;
 
       var response;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -2995,8 +2994,9 @@ var Layout = function Layout() {
               document.documentElement.style.setProperty("--secondary-color", (_response$data2 = response.data) === null || _response$data2 === void 0 ? void 0 : (_response$data2$style = _response$data2.styleset) === null || _response$data2$style === void 0 ? void 0 : _response$data2$style.colorset.color_2);
               document.documentElement.style.setProperty("--tertiary-color", (_response$data3 = response.data) === null || _response$data3 === void 0 ? void 0 : (_response$data3$style = _response$data3.styleset) === null || _response$data3$style === void 0 ? void 0 : _response$data3$style.colorset.color_3);
               document.documentElement.style.setProperty("--quaternary-color", (_response$data4 = response.data) === null || _response$data4 === void 0 ? void 0 : (_response$data4$style = _response$data4.styleset) === null || _response$data4$style === void 0 ? void 0 : _response$data4$style.colorset.color_4);
+              document.documentElement.style.setProperty("--ff", (_response$data5 = response.data) === null || _response$data5 === void 0 ? void 0 : (_response$data5$style = _response$data5.styleset) === null || _response$data5$style === void 0 ? void 0 : _response$data5$style.font.name);
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }

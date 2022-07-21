@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Page/Lukas/navbar";
 import BlogContext from "./context/BlogContext";
 import Routing from "./Routing";
@@ -30,6 +29,10 @@ const Layout = () => {
             document.documentElement.style.setProperty(
                 "--quaternary-color",
                 response.data?.styleset?.colorset.color_4
+            );
+            document.documentElement.style.setProperty(
+                "--ff",
+                response.data?.styleset?.font.name
             );
 
     };

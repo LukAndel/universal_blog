@@ -16,6 +16,7 @@ class PageResource extends JsonResource
     {
         return [
             'pageTitle' => $this->page_title,
+            'font' => $this->styleset->font_id,
             'colorset' => $this->styleset->colorset_id,
             'fb_uid' => $this->fb_uid,
             'sections' => $this->getSectionNames()

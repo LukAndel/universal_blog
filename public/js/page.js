@@ -2258,6 +2258,7 @@ var CreationForm = function CreationForm() {
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     colorset: '',
+    font: '',
     pageTitle: '',
     sections: [],
     fb_uid: ''
@@ -2278,8 +2279,11 @@ var CreationForm = function CreationForm() {
 
             case 2:
               response = _context.sent;
-              // console.log(response.data.data)   
-              setFormValues(response.data.data);
+              // console.log(response.data.data)     
+              setFormValues(response.data.data); // if (formValues.sections == []) {
+              //     setFormValues({sections: [{name:'Home'}, {name: 'Categories'}] })
+              // }
+              // console.log(formValues.sections)
 
             case 4:
             case "end":
@@ -2369,7 +2373,7 @@ var CreationForm = function CreationForm() {
     // const name = dataString.split('||')[1]
     var newRecord = {
       name: e.target.value
-    }; // console.log(newRecord)
+    };
 
     if (e.target.checked) {
       var updatedList = [].concat(_toConsumableArray(formValues.sections), [newRecord]);
@@ -2412,7 +2416,7 @@ var CreationForm = function CreationForm() {
 
   var handleSubmit = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(e) {
-      var response, response_data;
+      var response, response_status;
       return _regeneratorRuntime().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -2425,14 +2429,15 @@ var CreationForm = function CreationForm() {
 
             case 3:
               response = _context4.sent;
-              response_data = response.data;
-              console.log(response_data); // }
+              response_status = response.status;
+              console.log(response_status);
+              if (response_status === 200) alert('Options saved!'); // }
               // catch(error) {
-              // console.log(error); // information about the error
-              // console.log(error.response); // the response object from the failed request
+              // console.log(error); 
+              // console.log(error.response); 
               // }
 
-            case 6:
+            case 7:
             case "end":
               return _context4.stop();
           }
@@ -2444,7 +2449,6 @@ var CreationForm = function CreationForm() {
       return _ref4.apply(this, arguments);
     };
   }(); // console.log(formValues)  
-  // console.log(values)
 
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -2463,14 +2467,14 @@ var CreationForm = function CreationForm() {
         className: "colorset--selection",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           children: "Colorset"
-        }), defaultColorsets.map(function (colorset, i) {
+        }), defaultColorsets.map(function (colorset) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
             className: "colorsetbox",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "radio",
               name: "colorset",
-              value: i + 1,
-              checked: formValues.colorset == i + 1,
+              value: colorset.id,
+              checked: formValues.colorset == colorset.id,
               onChange: function onChange(e) {
                 return handleChange(e);
               }
@@ -2495,7 +2499,40 @@ var CreationForm = function CreationForm() {
                 backgroundColor: colorset.color_4
               }
             })]
-          }, i);
+          }, colorset.id);
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "fontsetbox",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: "Font"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          name: "font",
+          id: "font",
+          onChange: handleChange,
+          value: formValues.font,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            defaultValue: true,
+            hidden: true,
+            children: " - select a font - "
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "1",
+            children: "Edu NSW ACT"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2",
+            children: "Roboto Slab"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "3",
+            children: "Kanit"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "4",
+            children: "Tajawal"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "5",
+            children: "Indie Flower"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "6",
+            children: "Caveat"
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "sections--selection",
@@ -2510,6 +2547,7 @@ var CreationForm = function CreationForm() {
               children: defaultSection.name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "checkbox",
+              id: defaultSection.name,
               value: defaultSection.name,
               checked: !!(formValues !== null && formValues !== void 0 && (_formValues$sections2 = formValues.sections) !== null && _formValues$sections2 !== void 0 && (_formValues$sections3 = _formValues$sections2.filter(function (element) {
                 return element.name === defaultSection.name;
@@ -2543,13 +2581,18 @@ var CreationForm = function CreationForm() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "submit",
         className: "btn",
-        children: "Create"
+        children: "Submit"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Preview__WEBPACK_IMPORTED_MODULE_2__["default"], {
       data: formValues
     })]
   });
-};
+}; // document.addEventListener('DOMContentLoaded', (checked=false) => {
+//   const home = document.querySelector('input[id="home"]');
+//   const categories = document.getElementById('Categories');
+//   home.onLoad = checked
+// });
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreationForm);
 
