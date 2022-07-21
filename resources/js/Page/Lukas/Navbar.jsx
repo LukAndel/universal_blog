@@ -1,8 +1,9 @@
-import React, {useState, useEffect, Fragment} from 'react'
+import React, {useState, useEffect, Fragment, useContext} from 'react'
 import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import BlogContext from '../../blog/context/BlogContext';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
 
     const [active, setActive] = useState(0);
     
@@ -12,14 +13,16 @@ const Navbar = ({ user }) => {
 
     const [sections, setSections] = useState([]);
 
+    const { blogUser } = useContext(BlogContext)
+
     const fetchSections = async () => {
-        const response = await axios.get(`/api/blog/sections`);
+        const response = await axios.get(`/api/${blogUser}/sections`);
         setSections(response.data);
     };
 
     const action = (async() => {
 
-        const response = await axios.get("/api/blog/categories");
+        const response = await axios.get(`/api/${blogUser}/categories`);
 
         const categoriesData = await response.data
         
@@ -35,8 +38,6 @@ const Navbar = ({ user }) => {
             return result;
         }, {});
 
-
-
         let uniqueArray = [];
 
         for (let i = 0; i < categoryMap[0].length; i++) {
@@ -50,14 +51,12 @@ const Navbar = ({ user }) => {
     })
 
     useEffect (() => {
-        fetchSections();
-        action();
+        if (blogUser) {
+            fetchSections();
+            action();
+        }
 
-    }, []);
-
-
-    console.log(sections)
-  
+    }, [blogUser]);
 
     return (
         <nav role="navigation" id="access">
@@ -67,20 +66,21 @@ const Navbar = ({ user }) => {
                     
                     <li className={section.id === active ? "active" : ""} onClick={() => setActive(section.id)} key={section.id}>
                         
-                        {   section.name === 'Home' ? <Link to={'/' + user.name}>{section.name}</Link> :
-                            section.name === 'Categories' ? 
-                                <Fragment>
-                                    <span onClick={() => setOpenCategories(!openCategories)}>
-                                        {section.name}
-                                    </span>
-    
-                                    
+                        {   
+                            section.name === 'Home' ? <Link to={'/' + blogUser}>{section.name}</Link> :
+                                section.name === 'Categories' ? 
+                                    <Fragment>
+                                        <span onClick={() => setOpenCategories(!openCategories)}>
+                                            {section.name}
+                                        </span>
+        
+                                        
                                         {
-                                            openCategories && <ul id='nav-dropdown'>{categories.map((element) => <li key={element}><Link to={'/' + user.name + '/categories/' + element}>{element}</Link></li>)}</ul>
+                                            openCategories && <ul id='nav-dropdown'>{categories.map((element) => <li key={element}><Link to={'/' + blogUser + '/categories/' + element}>{element}</Link></li>)}</ul>
                                         }
-                                </Fragment>
-                            :
-                                <Link to={'/' + user.name + '/' + section.name}>{section.name}</Link>
+                                    </Fragment>
+                                :
+                                    <Link to={'/' + blogUser + '/' + section.name}>{section.name}</Link>
                         }
                         
                         

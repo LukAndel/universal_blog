@@ -12,35 +12,35 @@ use Auth;
 
 class BlogController extends Controller
 {
-    public function getArticles()
+    public function getArticles($name)
     {
-        $id = Auth::id();
-        $articles = Article::where('user_id', $id)->get();
+        $user = User::where("name", $name)->first();
+        $articles = Article::where('user_id', $user->id)->get();
 
         return $articles;
     }
 
-    public function getUser()
+    public function getUser($name)
     {
-        $id = Auth::id();
-        $user = User::where('id', $id)->with('styleset.colorset')->first();
+        
+        $user = User::where('name', $name)->with('styleset.colorset')->first();
 
         return $user;
     }
 
-    public function getArticle($id)
+    public function getArticle($name, $id)
     {
-        $userId = Auth::id();
-        $article = Article::where([['user_id', $userId], ['id', $id]])->first();
+        $user = User::where("name", $name)->first();
+        $article = Article::where([['user_id', $user->id], ['id', $id]])->first();
         $categories = $article->categories;
 
         return $article;
     }
 
-    public function getCategories()
+    public function getCategories($name)
     {
-        $id = Auth::id();
-        $categories = Article::where('user_id', $id)->with('categories')->get();
+        $user = User::where("name", $name)->first();
+        $categories = Article::where('user_id', $user->id)->with('categories')->get();
         // $categories = $articles->categories;
 
         return $categories;
@@ -51,9 +51,9 @@ class BlogController extends Controller
     //     $styleset = Styleset::where('user_id')
     // }
 
-    public function getSections()
+    public function getSections($name)
     {
-        $user = Auth::user();
+        $user = User::where("name", $name)->first();
         $sections = $user->sections;
 
         return $sections;

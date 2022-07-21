@@ -1,4 +1,23 @@
+import { useContext, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import BlogContext from "./context/BlogContext"
+
+
 const Portfolio = () => {
+
+
+    
+    const params = useParams()
+
+    const { setBlogUser } = useContext(BlogContext)
+
+    useEffect(() => {
+
+        if (params.name) {
+            setBlogUser(params.name)
+        }
+
+    }, [params.name])
 
     return (
         <div>

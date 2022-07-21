@@ -16,7 +16,7 @@ const Categories = () => {
 
     const action = (() => {
         if (categoriesData !== null) {
-        const categories = categoriesData?.map((article) => article.categories?.map((category) => category.name));
+        const categories = categoriesData?.map((article) => article.categories?.map((category) => <span key={category.id}>{category.name}</span>));
 
     const categoryMap = Object.values(categories)
     .reduce((concatedArr, item) => concatedArr.concat(Object.entries(item)), [])
