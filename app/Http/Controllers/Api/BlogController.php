@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function getUser()
     {
         $id = Auth::id();
-        $user = User::where('id', $id)->with('styleset.colorset')->first();
+        $user = User::where('id', $id)->with(['styleset.colorset', 'styleset.font'])->first();
 
         return $user;
     }

@@ -2420,7 +2420,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var App = function App() {
-  var _user$styleset, _user$styleset2, _user$styleset3, _user$styleset4;
+  var _user$styleset, _user$styleset2, _user$styleset3, _user$styleset4, _user$styleset5;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2440,9 +2440,8 @@ var App = function App() {
             case 2:
               response = _context.sent;
               setUser(response.data);
-              console.log(response.data.styleset.colorset.color_1);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2459,6 +2458,7 @@ var App = function App() {
   document.documentElement.style.setProperty("--secondary-color", (_user$styleset2 = user.styleset) === null || _user$styleset2 === void 0 ? void 0 : _user$styleset2.colorset.color_2);
   document.documentElement.style.setProperty("--tertiary-color", (_user$styleset3 = user.styleset) === null || _user$styleset3 === void 0 ? void 0 : _user$styleset3.colorset.color_3);
   document.documentElement.style.setProperty("--quaternary-color", (_user$styleset4 = user.styleset) === null || _user$styleset4 === void 0 ? void 0 : _user$styleset4.colorset.color_4);
+  document.documentElement.style.setProperty("--ff", (_user$styleset5 = user.styleset) === null || _user$styleset5 === void 0 ? void 0 : _user$styleset5.font.name);
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchUser();
   }, []);

@@ -2258,6 +2258,7 @@ var CreationForm = function CreationForm() {
 
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     colorset: '',
+    font: '',
     pageTitle: '',
     sections: [],
     fb_uid: ''
@@ -2278,8 +2279,11 @@ var CreationForm = function CreationForm() {
 
             case 2:
               response = _context.sent;
-              // console.log(response.data.data)   
-              setFormValues(response.data.data);
+              // console.log(response.data.data)     
+              setFormValues(response.data.data); // if (formValues.sections == []) {
+              //     setFormValues({sections: [{name:'Home'}, {name: 'Categories'}] })
+              // }
+              // console.log(formValues.sections)
 
             case 4:
             case "end":
@@ -2369,7 +2373,7 @@ var CreationForm = function CreationForm() {
     // const name = dataString.split('||')[1]
     var newRecord = {
       name: e.target.value
-    }; // console.log(newRecord)
+    };
 
     if (e.target.checked) {
       var updatedList = [].concat(_toConsumableArray(formValues.sections), [newRecord]);
@@ -2428,8 +2432,8 @@ var CreationForm = function CreationForm() {
               response_data = response.data;
               console.log(response_data); // }
               // catch(error) {
-              // console.log(error); // information about the error
-              // console.log(error.response); // the response object from the failed request
+              // console.log(error); 
+              // console.log(error.response); 
               // }
 
             case 6:
@@ -2444,7 +2448,6 @@ var CreationForm = function CreationForm() {
       return _ref4.apply(this, arguments);
     };
   }(); // console.log(formValues)  
-  // console.log(values)
 
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -2498,6 +2501,35 @@ var CreationForm = function CreationForm() {
           }, i);
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "fontsetbox",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: "Font"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          name: "font",
+          id: "font",
+          onChange: handleChange,
+          value: formValues.font,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "1",
+            children: "Edu NSW ACT"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "2",
+            children: "Roboto Slab"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "3",
+            children: "Kanit"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "4",
+            children: "Tajawal"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "5",
+            children: "Indie Flower"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "6",
+            children: "Caveat"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "sections--selection",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
           children: "Choose sections"
@@ -2510,6 +2542,7 @@ var CreationForm = function CreationForm() {
               children: defaultSection.name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "checkbox",
+              id: defaultSection.name,
               value: defaultSection.name,
               checked: !!(formValues !== null && formValues !== void 0 && (_formValues$sections2 = formValues.sections) !== null && _formValues$sections2 !== void 0 && (_formValues$sections3 = _formValues$sections2.filter(function (element) {
                 return element.name === defaultSection.name;
@@ -2549,7 +2582,12 @@ var CreationForm = function CreationForm() {
       data: formValues
     })]
   });
-};
+}; // document.addEventListener('DOMContentLoaded', (checked=false) => {
+//   const home = document.querySelector('input[id="home"]');
+//   const categories = document.getElementById('Categories');
+//   home.onLoad = checked
+// });
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreationForm);
 

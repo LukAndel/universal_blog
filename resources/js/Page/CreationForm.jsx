@@ -7,6 +7,7 @@ const CreationForm = () => {
     const [defaultColorsets, setDefaultColorsets] = useState([])
     const [formValues, setFormValues] = useState({
         colorset: '',
+        font: '',
         pageTitle: '',
         sections: [],
         fb_uid: ''
@@ -14,8 +15,12 @@ const CreationForm = () => {
     
     const fetchData = async () => {
         const response = await axios.get("/api/page-creation/data");
-            // console.log(response.data.data)   
+        // console.log(response.data.data)     
         setFormValues(response.data.data);
+        // if (formValues.sections == []) {
+        //     setFormValues({sections: [{name:'Home'}, {name: 'Categories'}] })
+        // }
+        // console.log(formValues.sections)
     };
 
     const fetchSections = async () => {
@@ -56,7 +61,8 @@ const CreationForm = () => {
                 const newRecord = {
                     name: e.target.value,
                 }
-                // console.log(newRecord)
+            
+                
                 
             if (e.target.checked) {
 
@@ -108,14 +114,12 @@ const CreationForm = () => {
         console.log(response_data);
         // }
         // catch(error) {
-        // console.log(error); // information about the error
-        // console.log(error.response); // the response object from the failed request
+        // console.log(error); 
+        // console.log(error.response); 
         // }
         
     };
     // console.log(formValues)  
-
-    // console.log(values)
     return (
         <div className='creation'>
             <form className='form' onSubmit={handleSubmit}>
@@ -144,6 +148,21 @@ const CreationForm = () => {
                     <label>C</label>
                     <input type="radio" name="colorset" value="3" checked={formValues.colorset == "3"} onChange={(e)=> handleChange(e)} /> */}
                 </div>
+                <br />
+                <div className='fontsetbox'>
+                    <label>Font</label>
+                    <br />
+                    <select name="font" id='font' onChange={handleChange} value={formValues.font}>
+                    <option></option>
+                    <option value="1">Edu NSW ACT</option>
+                    <option value="2">Roboto Slab</option>
+                    <option value="3">Kanit</option>
+                    <option value="4">Tajawal</option>
+                    <option value="5">Indie Flower</option>
+                    <option value="6">Caveat</option>
+
+                    </select>
+                </div>
                 <br/>
                 <div className='sections--selection'>
                     <label>Choose sections</label>
@@ -151,9 +170,9 @@ const CreationForm = () => {
                     {defaultSections.map((defaultSection, i)=>(
                         <div className='section' key={i}>
                         <label>{defaultSection.name}</label>
-                        <input type="checkbox" value={defaultSection.name}
+                        <input type="checkbox" id={defaultSection.name} value={defaultSection.name}
                         checked={!!formValues?.sections?.filter((element) => element.name === defaultSection.name)?.length}
-                        onChange={handleCheck}/>
+                        onChange={handleCheck} />
                         </div>
                     ))}
 
@@ -197,4 +216,9 @@ const CreationForm = () => {
         </div>
     )
 }
+// document.addEventListener('DOMContentLoaded', (checked=false) => {
+//   const home = document.querySelector('input[id="home"]');
+//   const categories = document.getElementById('Categories');
+//   home.onLoad = checked
+// });
 export default CreationForm

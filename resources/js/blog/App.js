@@ -12,7 +12,6 @@ const App = () => {
     const fetchUser = async () => {
         const response = await axios.get("/api/blog/user");
         setUser(response.data);
-        console.log(response.data.styleset.colorset.color_1);
     };
 
     document.documentElement.style.setProperty(
@@ -30,6 +29,10 @@ const App = () => {
     document.documentElement.style.setProperty(
         "--quaternary-color",
         user.styleset?.colorset.color_4
+    );
+    document.documentElement.style.setProperty(
+        "--ff",
+        user.styleset?.font.name
     );
 
     useEffect(() => {
