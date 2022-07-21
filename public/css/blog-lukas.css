@@ -1153,5 +1153,11 @@ body {
     transform: translateY(1em) scale(3) rotate(15deg);
   }
 }
+#nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+}
 
 /*# sourceMappingURL=blog-lukas.css.map*/

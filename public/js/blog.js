@@ -2198,6 +2198,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Navbar = function Navbar(_ref) {
   var user = _ref.user;
 
@@ -2205,6 +2206,16 @@ var Navbar = function Navbar(_ref) {
       _useState2 = _slicedToArray(_useState, 2),
       active = _useState2[0],
       setActive = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      categories = _useState4[0],
+      setCategories = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      openCategories = _useState6[0],
+      setOpenCategories = _useState6[1];
 
   var links = [{
     label: 'Home',
@@ -2228,14 +2239,9 @@ var Navbar = function Navbar(_ref) {
     id: 4
   }];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      categoriesData = _useState4[0],
-      setCategoriesData = _useState4[1];
-
-  var fetchCategories = /*#__PURE__*/function () {
+  var action = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var response;
+      var response, categoriesData, categories, categoryMap, uniqueArray, i;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2245,9 +2251,61 @@ var Navbar = function Navbar(_ref) {
 
             case 2:
               response = _context.sent;
-              setCategoriesData(response.data);
+              _context.next = 5;
+              return response.data;
 
-            case 4:
+            case 5:
+              categoriesData = _context.sent;
+
+              if (!(categoriesData === null)) {
+                _context.next = 8;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 8:
+              console.log(categoriesData);
+              _context.next = 11;
+              return categoriesData === null || categoriesData === void 0 ? void 0 : categoriesData.map(function (article) {
+                var _article$categories;
+
+                return (_article$categories = article.categories) === null || _article$categories === void 0 ? void 0 : _article$categories.map(function (category) {
+                  return category.name;
+                });
+              });
+
+            case 11:
+              categories = _context.sent;
+              _context.next = 14;
+              return Object.values(categories).reduce(function (concatedArr, item) {
+                return concatedArr.concat(Object.entries(item));
+              }, []).reduce(function (result, _ref3) {
+                var _ref4 = _slicedToArray(_ref3, 2),
+                    category = _ref4[0],
+                    values = _ref4[1];
+
+                result[category] = result[category] || [];
+                result[category] = result[category].concat(values);
+                return result;
+              }, {});
+
+            case 14:
+              categoryMap = _context.sent;
+              uniqueArray = [];
+
+              for (i = 0; i < categoryMap[0].length; i++) {
+                if (!uniqueArray.includes(categoryMap[0][i])) {
+                  uniqueArray.push(categoryMap[0][i]);
+                }
+
+                console.log(uniqueArray);
+              }
+
+              ;
+              setCategories(uniqueArray);
+
+            case 19:
             case "end":
               return _context.stop();
           }
@@ -2255,52 +2313,14 @@ var Navbar = function Navbar(_ref) {
       }, _callee);
     }));
 
-    return function fetchCategories() {
+    return function action() {
       return _ref2.apply(this, arguments);
     };
   }();
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetchCategories();
-  }, []);
-
-  var action = function action() {
-    if (categoriesData !== null) {
-      var categories = categoriesData === null || categoriesData === void 0 ? void 0 : categoriesData.map(function (article) {
-        var _article$categories;
-
-        return (_article$categories = article.categories) === null || _article$categories === void 0 ? void 0 : _article$categories.map(function (category) {
-          return category.name;
-        });
-      });
-      var categoryMap = Object.values(categories).reduce(function (concatedArr, item) {
-        return concatedArr.concat(Object.entries(item));
-      }, []).reduce(function (result, _ref3) {
-        var _ref4 = _slicedToArray(_ref3, 2),
-            category = _ref4[0],
-            values = _ref4[1];
-
-        result[category] = result[category] || [];
-        result[category] = result[category].concat(values);
-        return result;
-      }, {});
-      var uniqueArray = [];
-
-      for (var i = 0; i < categoryMap[0].length; i++) {
-        if (!uniqueArray.includes(categoryMap[0][i])) {
-          uniqueArray.push(categoryMap[0][i]);
-        }
-      }
-
-      ;
-      return uniqueArray;
-    }
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     action();
-  }, [categoriesData]);
-  console.log(action());
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
     role: "navigation",
     id: "access",
@@ -2308,11 +2328,31 @@ var Navbar = function Navbar(_ref) {
       id: "menu",
       children: links.map(function (element) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          className: element.id === active ? "active" + " " + element.label : element.label,
+          style: {
+            position: 'relative'
+          },
+          className: element.id === active ? "active" : "",
           onClick: function onClick() {
             return setActive(element.id);
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: element.label === 'Categories' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              onClick: function onClick() {
+                return setOpenCategories(!openCategories);
+              },
+              children: element.label
+            }), openCategories && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+              id: "nav-dropdown",
+              children: categories.map(function (element) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+                    to: '/' + user.name + '/categories/' + element,
+                    children: element
+                  })
+                }, element);
+              })
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             to: element.path,
             children: element.label
           })

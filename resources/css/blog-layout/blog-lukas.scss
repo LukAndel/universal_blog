@@ -74,6 +74,7 @@ body {
 
 
 
+
 .article:nth-child(1) {
   background-image: url('../../images/DSC02108-1024x683.jpg');
 }
@@ -1267,4 +1268,11 @@ body {
     -o-transform: translateY(1em) scale(3) rotate(15deg);
     transform: translateY(1em) scale(3) rotate(15deg);
   }
+}
+
+#nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
 }
