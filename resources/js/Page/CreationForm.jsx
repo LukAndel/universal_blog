@@ -110,8 +110,10 @@ const CreationForm = () => {
         // try
         // {
         const response = await axios.post("/page-creation", formValues);
-        const response_data = response.data;
-        console.log(response_data);
+        const response_status = response.status;
+        console.log(response_status);
+        if (response_status === 200) alert('Options saved!')
+
         // }
         // catch(error) {
         // console.log(error); 
@@ -129,8 +131,8 @@ const CreationForm = () => {
                 <br/>
                 <div className='colorset--selection'>
                     <label>Colorset</label>
-                    {defaultColorsets.map((colorset, i)=>(
-                        <span className='colorsetbox' key={i}><input type="radio" name="colorset" value={i+1} checked={formValues.colorset == i+1} onChange={(e)=> handleChange(e)} />
+                    {defaultColorsets.map((colorset)=>(
+                        <span className='colorsetbox' key={colorset.id}><input type="radio" name="colorset" value={colorset.id} checked={formValues.colorset == colorset.id} onChange={(e)=> handleChange(e)} />
                         <div className='colorpickbox' style={{backgroundColor:colorset.color_1}}></div>
                         <div className='colorpickbox' style={{backgroundColor:colorset.color_2}}></div>
                         <div className='colorpickbox' style={{backgroundColor:colorset.color_3}}></div>
@@ -153,7 +155,7 @@ const CreationForm = () => {
                     <label>Font</label>
                     <br />
                     <select name="font" id='font' onChange={handleChange} value={formValues.font}>
-                    <option selected hidden> - select a font - </option>
+                    <option defaultValue hidden> - select a font - </option>
                     <option value="1">Edu NSW ACT</option>
                     <option value="2">Roboto Slab</option>
                     <option value="3">Kanit</option>
@@ -210,7 +212,7 @@ const CreationForm = () => {
                 </div>)}
                 <br/>
                 <br/>
-                <button type='submit' className="btn">Create</button>            
+                <button type='submit' className="btn">Submit</button>            
             </form>
             <Preview data={formValues}/>
         </div>
