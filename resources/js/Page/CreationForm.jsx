@@ -214,7 +214,7 @@ const CreationForm = () => {
                 <br/>
                 <button type='submit' className="btn">Submit</button>            
             </form>
-            <Preview data={formValues}/>
+            <Preview data={formValues} colorset={defaultColorsets[formValues.colorset-1]} />
         </div>
     )
 }

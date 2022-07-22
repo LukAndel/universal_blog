@@ -13,4 +13,6 @@ yarn-error.log
 /.idea
 /.vscode
 phploy.ini
-/public
+/public/css
+/public/js
+/public/mix-manifest.json
