@@ -3,7 +3,6 @@ import { render } from "react-dom";
 
 const Preview = ({data, colorset}) => {
     const {pageTitle, sections} = data;
-    // console.log(data)
     console.log(colorset)
 
     const element = document.querySelector('.preview')

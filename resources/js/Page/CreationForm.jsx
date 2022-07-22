@@ -55,9 +55,7 @@ const CreationForm = () => {
     
     const handleCheck = (e) => {
             
-                // const dataString = e.target.value;
-                // const id = Number(dataString.split('||')[0])
-                // const name = dataString.split('||')[1]
+
                 const newRecord = {
                     name: e.target.value,
                 }
