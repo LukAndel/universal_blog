@@ -3,8 +3,30 @@ import { render } from "react-dom";
 
 const Preview = ({data, colorset}) => {
     const {pageTitle, sections} = data;
-    console.log(data)
+    // console.log(data)
     console.log(colorset)
+
+    const element = document.querySelector('.preview')
+        document.documentElement.style.setProperty(
+            "--primary-color",
+            colorset?.color_1    
+        );
+        document.documentElement.style.setProperty(
+            "--secondary-color",
+            colorset?.color_2
+        );
+        document.documentElement.style.setProperty(
+            "--tertiary-color",
+            colorset?.color_3
+        );
+        document.documentElement.style.setProperty(
+            "--quaternary-color",
+            colorset?.color_4
+        );
+        // element.style.setProperty(
+        //     "--ff",
+        //     response.data?.styleset?.font.name
+        // );
 
     return (
         <div className="preview">
@@ -12,7 +34,7 @@ const Preview = ({data, colorset}) => {
                 <header>
             <nav className="preview__nav">
                 {sections&&sections.map ((section, i)=> (
-                <a key={i} className={i===0?"preview__anchor preview__anchor--selected":"preview__anchor"} href="">{section.name}</a>
+                <a key={i} className={i===0?"preview__anchor preview__anchor--selected":"preview__anchor"} href="#">{section.name}</a>
                 ))}
             </nav>
             <h1 className="preview__h1">{pageTitle&&pageTitle}</h1>

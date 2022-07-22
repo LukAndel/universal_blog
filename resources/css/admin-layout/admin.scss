@@ -98,7 +98,7 @@ h6 {
 
 	&__article {
 		width: 90%;
-		margin: 10px;
+		margin: 20px 0;
 		height: 200px;
 		border-radius: 10px;
 		background-image: url('../../images/img_placeholder.PNG');
@@ -143,6 +143,8 @@ h6 {
 		text-decoration: none;
 		padding: 0.5em;
 		position: relative;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
 
 		&:hover {
 			background-color: var(--tertiary-color);
